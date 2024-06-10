@@ -13,7 +13,7 @@ class KelahiranController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.kelahiran.daftar-kelahiran');
     }
 
     /**

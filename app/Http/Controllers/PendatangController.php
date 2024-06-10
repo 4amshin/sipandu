@@ -13,7 +13,7 @@ class PendatangController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.pendatang.daftar-pendatang');
     }
 
     /**

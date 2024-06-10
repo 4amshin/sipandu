@@ -3,7 +3,8 @@
         <div class="sidebar-header position-relative">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="logo">
-                    <a href="#"><img src="{{ asset('assets/compiled/svg/logo.svg') }}" alt="Logo"></a>
+                    <a href="{{ route('home') }}"><img src="{{ asset('assets/compiled/svg/logo.svg') }}"
+                            alt="Logo"></a>
                 </div>
 
                 <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
@@ -48,49 +49,62 @@
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
 
-                <li class="sidebar-item active">
-                    <a href="" class='sidebar-link'>
+                <!--Menu Beranda-->
+                <li class="sidebar-item {{ Request::is('home*') ? 'active' : '' }}">
+                    <a href="{{ route('home') }}" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
-                        <span>Dashboard</span>
+                        <span>Beranda</span>
                     </a>
                 </li>
 
-                <li class="sidebar-item">
-                    <a href="" class='sidebar-link'>
+                <!--Daftar Pengguna-->
+                <li class="sidebar-item {{ Request::is('pengguna*') ? 'active' : '' }}">
+                    <a href="{{ route('pengguna.index') }}" class='sidebar-link'>
                         <i class="bi bi-person-fill-gear"></i>
                         <span>Daftar Pengguna</span>
                     </a>
                 </li>
 
-                <li class="sidebar-item active  has-sub">
+                <!--List Data-->
+                <li
+                    class="sidebar-item {{ Request::is('penduduk*', 'kelahiran*', 'meninggal*', 'pendatang*', 'pindahan*') ? 'active' : '' }}  has-sub">
                     <a href="#" class='sidebar-link'>
-
                         <i class="bi bi-archive-fill"></i>
                         <span>Data</span>
                     </a>
 
+                    <!--List Menu Data-->
                     <ul class="submenu ">
+                        <!--Data Penduduk-->
+                        <li class="submenu-item {{ Request::is('penduduk*') ? 'active' : '' }}">
+                            <a href="{{ route('penduduk.index') }}" class="submenu-link">Data Penduduk</a>
+                        </li>
 
-                        <li class="submenu-item  active">
-                            <a href="#" class="submenu-link">Data Penduduk</a>
+                        <!--Data Kelahiran-->
+                        <li class="submenu-item  {{ Request::is('kelahiran*') ? 'active' : '' }}">
+                            <a href="{{ route('kelahiran.index') }}" class="submenu-link">Data Kelahiran</a>
                         </li>
-                        <li class="submenu-item  ">
-                            <a href="#" class="submenu-link">Data Kelahiran</a>
+
+                        <!--Data Meninggal-->
+                        <li class="submenu-item {{ Request::is('meninggal*') ? 'active' : '' }} ">
+                            <a href="{{ route('meninggal.index') }}" class="submenu-link">Data Meninggal</a>
                         </li>
-                        <li class="submenu-item  ">
-                            <a href="#" class="submenu-link">Data Meninggal</a>
+
+                        <!--Data Pendatang-->
+                        <li class="submenu-item  {{ Request::is('pendatang*') ? 'active' : '' }}">
+                            <a href="{{ route('pendatang.index') }}" class="submenu-link">Data Pendatang</a>
                         </li>
-                        <li class="submenu-item  ">
-                            <a href="#" class="submenu-link">Data Pendatang</a>
-                        </li>
-                        <li class="submenu-item  ">
-                            <a href="#" class="submenu-link">Data Pindah</a>
+
+                        <!--Data Pindahan-->
+                        <li class="submenu-item  {{ Request::is('pindahan*') ? 'active' : '' }}">
+                            <a href="{{ route('pindahan.index') }}" class="submenu-link">Data Pindahan</a>
                         </li>
                     </ul>
                 </li>
 
-                <li class="sidebar-item">
-                    <a href="" class='sidebar-link'>
+                <!--Menu Laporan-->
+                <li class="sidebar-item {{ Request::is('laporan*') ? 'active' : '' }}">
+                    <a href="{{ route('laporan.index') }}" class='sidebar-link'>
                         <i class="bi bi-file-earmark-text-fill"></i>
                         <span>Laporan</span>
                     </a>

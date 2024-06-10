@@ -13,7 +13,7 @@ class MeninggalController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.meninggal.daftar-meninggal');
     }
 
     /**

@@ -13,7 +13,7 @@ class PindahanController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.pindahan.daftar-pindahan');
     }
 
     /**
