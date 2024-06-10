@@ -1,5 +1,6 @@
 <?php
 
+use App\Providers\FortifyServiceProvider;
 use Illuminate\Support\Facades\Facade;
 
 return [
@@ -15,7 +16,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Sipandu'),
 
     /*
     |--------------------------------------------------------------------------
@@ -69,7 +70,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Makassar',
 
     /*
     |--------------------------------------------------------------------------
@@ -82,7 +83,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'id',
 
     /*
     |--------------------------------------------------------------------------
@@ -108,7 +109,7 @@ return [
     |
     */
 
-    'faker_locale' => 'en_US',
+    'faker_locale' => 'id_ID',
 
     /*
     |--------------------------------------------------------------------------
@@ -185,6 +186,8 @@ return [
         /*
          * Package Service Providers...
          */
+
+        FortifyServiceProvider::class,
 
         /*
          * Application Service Providers...
