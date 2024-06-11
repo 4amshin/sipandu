@@ -13,6 +13,9 @@
     <section class="section">
         <div class="card">
             <div class="card-body">
+                <!--Tombol Tambah Pengguna-->
+                <a href="{{ route('pengguna.create') }}" class="btn btn-primary mb-2">Tambah Pengguna</a>
+
                 <!--Tabel-->
                 <table class="table table-striped" id="table1">
                     <!--Head-->
@@ -35,7 +38,28 @@
                                 <td>{{ $pengguna->nip }}</td>
                                 <td>{{ $pengguna->nomor_telepon }}</td>
                                 <td>{{ $pengguna->email }}</td>
-                                <td>{{ $pengguna->password }}</td>
+                                <td>
+                                    <span class="badge bg-light-info">{{ $pengguna->password }}</span>
+                                </td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button type="button" class="btn btn-primary btn-sm dropdown-toggle"
+                                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Aksi
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <!--Tombol Update-->
+                                            <a href="{{ route('pengguna.edit', $pengguna->id) }}" class="dropdown-item">
+                                                <i class="bi bi-pen"></i> Edit
+                                            </a>
+                                            <!--Tombol Update-->
+                                            <a href="" class="dropdown-item">
+                                                <i class="bi bi-trash3"></i> Hapus
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
                         @empty
                             Data Kosong

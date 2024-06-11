@@ -30,7 +30,7 @@ class PenggunaController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pengguna.tambah-pengguna');
     }
 
     /**
@@ -54,7 +54,7 @@ class PenggunaController extends Controller
      */
     public function edit(Pengguna $pengguna)
     {
-        //
+        return view('admin.pengguna.update-pengguna', compact('pengguna'));
     }
 
     /**
