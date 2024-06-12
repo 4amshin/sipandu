@@ -109,6 +109,15 @@
                         <span>Laporan</span>
                     </a>
                 </li>
+
+                <li class="sidebar-item m-3">
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <button type="submit" href="#" class="btn icon icon-left btn-danger">
+                            <i class="bi bi-power"></i> LogOut
+                        </button>
+                    </form>
+                </li>
             </ul>
         </div>
     </div>

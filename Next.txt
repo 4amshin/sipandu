@@ -1,12 +1,6 @@
 - Login
     - show/hide eye
 
-- Menu Pengguna
-    - badge untuk password
-    - Tombol Tambah
-    - add column aksi (Tambah, Delete) pakai model dropdown
-    - Form Halaman Tambah, Update
-
 - Menu Data Penduduk
     - rancang tabel, model, controller
     - view tabel data Penduduk

@@ -59,3 +59,7 @@
         </p>
     </div>
 @endsection
+
+@push('customJs')
+    <script src="{{ asset('assets/custom.js') }}"></script>
+@endpush
