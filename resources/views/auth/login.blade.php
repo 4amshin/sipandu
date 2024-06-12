@@ -4,8 +4,8 @@
 
 @section('content')
     <!--Title-->
-    <h1 class="auth-title">Log in.</h1>
-    <p class="auth-subtitle mb-5">Masuklah dengan data yang Anda masukkan saat pendaftaran.</p>
+    <h1 class="auth-title">SIPANDU</h1>
+    <p class="auth-subtitle mb-5">Sistem Pendataan Penduduk Desa Padang Kalua</p>
 
     <!--Form-->
     <form action="{{ route('login') }}" method="POST">

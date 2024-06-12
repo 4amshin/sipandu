@@ -13,9 +13,10 @@
         <div class="card-content">
             <div class="card-body">
                 <!--Form-->
-                <form class="form">
+                <form class="form" method="POST" action="{{ route('pengguna.update', $pengguna->id) }}">
+                    @csrf
+                    @method('PUT')
                     <div class="row">
-
                         <!--Nama-->
                         <div class="col-md-6 col-12">
                             <div class="form-group">

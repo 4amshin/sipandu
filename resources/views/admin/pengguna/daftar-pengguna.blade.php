@@ -10,6 +10,9 @@
 @section('header', 'Daftar Pengguna')
 
 @section('content')
+    <!--Notifikasi-->
+    @include('layout.page-alert')
+
     <section class="section">
         <div class="card">
             <div class="card-body">
@@ -52,10 +55,15 @@
                                             <a href="{{ route('pengguna.edit', $pengguna->id) }}" class="dropdown-item">
                                                 <i class="bi bi-pen"></i> Edit
                                             </a>
-                                            <!--Tombol Update-->
-                                            <a href="" class="dropdown-item">
-                                                <i class="bi bi-trash3"></i> Hapus
-                                            </a>
+
+                                            <!--Tombol Hapus-->
+                                            <form action="{{ route('pengguna.destroy', $pengguna->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="dropdown-item">
+                                                    <i class="bi bi-trash3"></i> Hapus
+                                                </button>
+                                            </form>
 
                                         </div>
                                     </div>

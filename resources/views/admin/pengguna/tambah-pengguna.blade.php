@@ -13,15 +13,19 @@
         <div class="card-content">
             <div class="card-body">
                 <!--Form-->
-                <form class="form">
+                <form class="form" action="{{ route('pengguna.store') }}" method="POST">
+                    @csrf
                     <div class="row">
+
+                        <!--Role-->
+                        <input type="hidden" name="role" id="role" value="admin">
 
                         <!--Nama-->
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="nama">Nama</label>
                                 <input type="text" id="nama" class="form-control" placeholder="Nama Lengkap"
-                                    name="nama">
+                                    name="nama" required>
                             </div>
                         </div>
 
@@ -30,16 +34,16 @@
                             <div class="form-group">
                                 <label for="nip">NIP</label>
                                 <input type="text" id="nip" class="form-control" placeholder="Nomor Induk Pegawai"
-                                    name="nip">
+                                    name="nip" required>
                             </div>
                         </div>
 
                         <!--Nomor Telepon-->
                         <div class="col-md-12 col-12">
                             <div class="form-group">
-                                <label for="no_telepon">Kontak</label>
-                                <input type="text" id="no_telepon" class="form-control"
-                                    placeholder="Nomor Telepo/Whatsapp" name="no_telepon">
+                                <label for="nomor_telepon">Kontak</label>
+                                <input type="text" id="nomor_telepon" class="form-control"
+                                    placeholder="Nomor Telepon/Whatsapp" name="nomor_telepon">
                             </div>
                         </div>
 
@@ -47,8 +51,8 @@
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" id="email" class="form-control" name="email"
-                                    placeholder="Email">
+                                <input type="email" id="email" class="form-control" name="email" placeholder="Email"
+                                    required>
                             </div>
                         </div>
 
@@ -56,7 +60,7 @@
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" id="password" class="form-control" name="password">
+                                <input type="password" id="password" class="form-control" name="password" required>
                             </div>
                         </div>
 
