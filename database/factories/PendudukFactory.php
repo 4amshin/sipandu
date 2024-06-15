@@ -24,6 +24,11 @@ class PendudukFactory extends Factory
             'no_kk' => $faker->numerify('################'), // 16 digit angka
             'nama' => $faker->name,
             'jenis_kelamin' => $faker->randomElement(['laki-laki', 'perempuan']),
+            'tempat_lahir' => $faker->city, // Memasukkan data tempat lahir dengan kota acak
+            'tanggal_lahir' => $faker->date(),
+            'agama' => $faker->randomElement(['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha']), // Memilih agama secara acak
+            'status_pernikahan' => $faker->randomElement(['kawin', 'belum_kawin']),
+            'pekerjaan' => $faker->jobTitle, // Memasukkan data pekerjaan dengan judul pekerjaan acak
             'rt' => $faker->numberBetween(1, 20),
             'rw' => $faker->numberBetween(1, 20),
             'dusun' => $faker->streetName,

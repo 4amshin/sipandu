@@ -30,17 +30,37 @@
                         <!--Jenis Kelamin-->
                         <div class="col-md-6 col-12">
                             <div class="form-group">
-                                <label>Jenis Kelamin</label>
+                                <label for="jenis_kelamin">Jenis Kelamin</label>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin1"
-                                        value="laki-laki" {{ $penduduk->jenis_kelamin == 'laki-laki' ? 'checked' : '' }}>
+                                        value="laki-laki" {{ $penduduk->jenis_kelamin == 'laki-laki' ? 'checked' : '' }}
+                                        required>
                                     <label class="form-check-label" for="jenis_kelamin1">Laki-Laki</label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin2"
-                                        value="perempuan" {{ $penduduk->jenis_kelamin == 'perempuan' ? 'checked' : '' }}>
+                                        value="perempuan" {{ $penduduk->jenis_kelamin == 'perempuan' ? 'checked' : '' }}
+                                        required>
                                     <label class="form-check-label" for="jenis_kelamin2">Perempuan</label>
                                 </div>
+                            </div>
+                        </div>
+
+                        <!-- Tempat Lahir -->
+                        <div class="col-md-6 col-12">
+                            <div class="form-group">
+                                <label for="tempat_lahir">Tempat Lahir</label>
+                                <input type="text" id="tempat_lahir" class="form-control" placeholder="Tempat Lahir"
+                                    name="tempat_lahir" value="{{ $penduduk->tempat_lahir }}" required>
+                            </div>
+                        </div>
+
+                        <!-- Tanggal Lahir -->
+                        <div class="col-md-6 col-12">
+                            <div class="form-group">
+                                <label for="tanggal_lahir">Tanggal Lahir</label>
+                                <input type="date" id="tanggal_lahir" class="form-control" name="tanggal_lahir"
+                                    value="{{ $penduduk->tanggal_lahir }}" required>
                             </div>
                         </div>
 
@@ -48,8 +68,8 @@
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="nik">NIK</label>
-                                <input type="text" id="nik" class="form-control" placeholder="16 Digiti NIK"
-                                    name="nik" value="{{ $penduduk->nik }}" maxlength="16" required>
+                                <input type="text" id="nik" class="form-control" placeholder="16 Digit NIK"
+                                    name="nik" maxlength="16" value="{{ $penduduk->nik }}" required>
                             </div>
                         </div>
 
@@ -57,8 +77,8 @@
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="no_kk">NO KK</label>
-                                <input type="text" id="no_kk" class="form-control" placeholder="16 Digiti NO KK"
-                                    name="no_kk" value="{{ $penduduk->no_kk }}" maxlength="16" required>
+                                <input type="text" id="no_kk" class="form-control" placeholder="16 Digit NO KK"
+                                    name="no_kk" maxlength="16" value="{{ $penduduk->no_kk }}" required>
                             </div>
                         </div>
 
@@ -80,12 +100,54 @@
                             </div>
                         </div>
 
-                        <!--DUSUN-->
-                        <div class="col-md-12 col-12">
+                        <!--Dusun-->
+                        <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="dusun">Dusun</label>
                                 <input type="text" id="dusun" class="form-control" placeholder="Dusun" name="dusun"
                                     value="{{ $penduduk->dusun }}" required>
+                            </div>
+                        </div>
+
+                        <!-- Agama -->
+                        <div class="col-md-6 col-12">
+                            <label for="agama">Agama</label>
+                            <fieldset class="form-group">
+                                <select id="agama" class="form-select" name="agama" required>
+                                    <option value="Islam" {{ $penduduk->agama == 'Islam' ? 'selected' : '' }}>Islam
+                                    </option>
+                                    <option value="Kristen" {{ $penduduk->agama == 'Kristen' ? 'selected' : '' }}>Kristen
+                                    </option>
+                                    <option value="Katolik" {{ $penduduk->agama == 'Katolik' ? 'selected' : '' }}>Katolik
+                                    </option>
+                                    <option value="Hindu" {{ $penduduk->agama == 'Hindu' ? 'selected' : '' }}>Hindu
+                                    </option>
+                                    <option value="Buddha" {{ $penduduk->agama == 'Buddha' ? 'selected' : '' }}>Buddha
+                                    </option>
+                                </select>
+                            </fieldset>
+                        </div>
+
+                        <!-- Status Pernikahan -->
+                        <div class="col-md-6 col-12">
+                            <label for="status_pernikahan">Status Pernikahan</label>
+                            <fieldset class="form-group">
+                                <select id="status_pernikahan" class="form-select" name="status_pernikahan" required>
+                                    <option value="belum_kawin"
+                                        {{ $penduduk->status_pernikahan == 'belum_kawin' ? 'selected' : '' }}>Belum Kawin
+                                    </option>
+                                    <option value="kawin"
+                                        {{ $penduduk->status_pernikahan == 'kawin' ? 'selected' : '' }}>Kawin</option>
+                                </select>
+                            </fieldset>
+                        </div>
+
+                        <!-- Pekerjaan -->
+                        <div class="col-md-6 col-12">
+                            <div class="form-group">
+                                <label for="pekerjaan">Pekerjaan</label>
+                                <input type="text" id="pekerjaan" class="form-control" placeholder="Pekerjaan"
+                                    name="pekerjaan" value="{{ $penduduk->pekerjaan }}" required>
                             </div>
                         </div>
 

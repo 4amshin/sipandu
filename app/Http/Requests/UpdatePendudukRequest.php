@@ -26,9 +26,15 @@ class UpdatePendudukRequest extends FormRequest
             'no_kk' => 'required|string|max:16',
             'nama' => 'required|string|max:255',
             'jenis_kelamin' => 'required|in:laki-laki,perempuan',
+            'tanggal_lahir' => 'required|date', // tambahan aturan untuk tanggal_lahir
+            'tempat_lahir' => 'required|string|max:255', // tambahan aturan untuk tempat_lahir
+            'agama' => 'required|in:Islam,Kristen,Katolik,Hindu,Buddha', // tambahan aturan untuk agama
+            'status_pernikahan' => 'required|in:belum_kawin,kawin', // tambahan aturan untuk status_pernikahan
+            'pekerjaan' => 'required|string|max:255', // tambahan aturan untuk pekerjaan
             'rt' => 'required|integer|min:1',
             'rw' => 'required|integer|min:1',
             'dusun' => 'required|string|max:255',
+
         ];
     }
 }

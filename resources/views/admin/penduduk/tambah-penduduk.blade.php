@@ -43,6 +43,23 @@
                             </div>
                         </div>
 
+                        <!-- Tempat Lahir -->
+                        <div class="col-md-6 col-12">
+                            <div class="form-group">
+                                <label for="tempat_lahir">Tempat Lahir</label>
+                                <input type="text" id="tempat_lahir" class="form-control" placeholder="Tempat Lahir"
+                                    name="tempat_lahir" required>
+                            </div>
+                        </div>
+
+                        <!-- Tanggal Lahir -->
+                        <div class="col-md-6 col-12">
+                            <div class="form-group">
+                                <label for="tanggal_lahir">Tanggal Lahir</label>
+                                <input type="date" id="tanggal_lahir" class="form-control" name="tanggal_lahir" required>
+                            </div>
+                        </div>
+
                         <!--NIK-->
                         <div class="col-md-6 col-12">
                             <div class="form-group">
@@ -79,12 +96,46 @@
                             </div>
                         </div>
 
-                        <!--DUSUN-->
-                        <div class="col-md-12 col-12">
+                        <!--Dusun-->
+                        <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="dusun">Dusun</label>
                                 <input type="text" id="dusun" class="form-control" placeholder="Dusun" name="dusun"
                                     required>
+                            </div>
+                        </div>
+
+                        <!-- Agama -->
+                        <div class="col-md-6 col-12">
+                            <label for="agama">Agama</label>
+                            <fieldset class="form-group">
+                                <select id="agama" class="form-select" name="agama" required>
+                                    <option value="Islam">Islam</option>
+                                    <option value="Kristen">Kristen</option>
+                                    <option value="Katolik">Katolik</option>
+                                    <option value="Hindu">Hindu</option>
+                                    <option value="Buddha">Buddha</option>
+                                </select>
+                            </fieldset>
+                        </div>
+
+                        <!-- Status Pernikahan -->
+                        <div class="col-md-6 col-12">
+                            <label for="status_pernikahan">Status Pernikahan</label>
+                            <fieldset class="form-group">
+                                <select id="status_pernikahan" class="form-select" name="status_pernikahan" required>
+                                    <option value="belum_kawin">Belum Kawin</option>
+                                    <option value="kawin">Kawin</option>
+                                </select>
+                            </fieldset>
+                        </div>
+
+                        <!-- Pekerjaan -->
+                        <div class="col-md-6 col-12">
+                            <div class="form-group">
+                                <label for="pekerjaan">Pekerjaan</label>
+                                <input type="text" id="pekerjaan" class="form-control" placeholder="Pekerjaan"
+                                    name="pekerjaan" required>
                             </div>
                         </div>
 
