@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             PenggunaSeeder::class,
             PendudukSeeder::class,
             KelahiranSeeder::class,
+            KematianSeeder::class,
         ]);
     }
 }

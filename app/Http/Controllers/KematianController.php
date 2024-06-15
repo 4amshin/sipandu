@@ -13,7 +13,8 @@ class KematianController extends Controller
      */
     public function index()
     {
-        return view('admin.kematian.daftar-kematian');
+        $daftarKematian = Kematian::all();
+        return view('admin.kematian.daftar-kematian', compact('daftarKematian'));
     }
 
     /**
@@ -21,7 +22,7 @@ class KematianController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.kematian.tambah-kematian');
     }
 
     /**
@@ -29,7 +30,11 @@ class KematianController extends Controller
      */
     public function store(StoreKematianRequest $request)
     {
-        //
+        // Buat data kematian baru
+        Kematian::create($request->validated());
+
+        // Redirect dengan pesan sukses
+        return redirect()->route('kematian.index')->with('success', 'Data kematian berhasil ditambahkan');
     }
 
     /**
@@ -45,7 +50,7 @@ class KematianController extends Controller
      */
     public function edit(Kematian $kematian)
     {
-        //
+        return view('admin.kematian.update-kematian', compact('kematian'));
     }
 
     /**
@@ -53,7 +58,9 @@ class KematianController extends Controller
      */
     public function update(UpdateKematianRequest $request, Kematian $kematian)
     {
-        //
+        $kematian->update($request->validated());
+
+        return redirect()->route('kematian.index')->with('success', 'Data kematian berhasil diperbarui.');
     }
 
     /**
@@ -61,6 +68,7 @@ class KematianController extends Controller
      */
     public function destroy(Kematian $kematian)
     {
-        //
+        $kematian->delete();
+        return redirect()->route('kematian.index')->with('success', 'Data kematian telah dihapus.');
     }
 }

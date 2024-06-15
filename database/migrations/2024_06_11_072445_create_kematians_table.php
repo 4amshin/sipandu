@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('kematians', function (Blueprint $table) {
             $table->id();
+            $table->string('nik', 16)->unique();
+            $table->string('nama');
+            $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
+            $table->date('tanggal_kematian');
+            $table->time('jam_kematian');
+            $table->string('tempat_kematian');
+            $table->string('sebab');
+            $table->string('nama_ayah');
+            $table->string('nama_ibu');
             $table->timestamps();
         });
     }
