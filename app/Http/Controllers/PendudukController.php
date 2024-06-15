@@ -29,7 +29,7 @@ class PendudukController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.penduduk.tambah-penduduk');
     }
 
     /**
@@ -37,7 +37,11 @@ class PendudukController extends Controller
      */
     public function store(StorePendudukRequest $request)
     {
-        //
+        // Buat penduduk baru
+        Penduduk::create($request->validated());
+
+        // Redirect dengan pesan sukses
+        return redirect()->route('penduduk.index')->with('success', 'Penduduk berhasil ditambahkan');
     }
 
     /**
