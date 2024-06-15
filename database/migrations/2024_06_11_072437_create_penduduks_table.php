@@ -19,10 +19,7 @@ return new class extends Migration
             $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
             $table->string('rt');
             $table->string('rw');
-            $table->string('kelurahan');
-            $table->string('kecamatan');
-            $table->string('kota');
-            $table->string('provinsi');
+            $table->string('dusun');
             $table->timestamps();
         });
     }

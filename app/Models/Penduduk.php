@@ -16,9 +16,6 @@ class Penduduk extends Model
         'jenis_kelamin',
         'rt',
         'rw',
-        'kelurahan',
-        'kecamatan',
-        'kota ',
-        'provinsi',
+        'dusun',
     ];
 }

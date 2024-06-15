@@ -26,10 +26,7 @@ class PendudukFactory extends Factory
             'jenis_kelamin' => $faker->randomElement(['laki-laki', 'perempuan']),
             'rt' => $faker->numberBetween(1, 20),
             'rw' => $faker->numberBetween(1, 20),
-            'kelurahan' => $faker->streetName,
-            'kecamatan' => $faker->streetName,
-            'kota' => $faker->city,
-            'provinsi' => $faker->state,
+            'dusun' => $faker->streetName,
         ];
     }
 }

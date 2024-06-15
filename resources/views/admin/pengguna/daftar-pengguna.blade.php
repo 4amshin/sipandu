@@ -2,12 +2,12 @@
 
 @section('title', 'Pengguna')
 
+@section('header', 'Daftar Pengguna')
+
 @push('customCss')
     <link rel="stylesheet" href="{{ asset('assets/extensions/simple-datatables/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/compiled/css/table-datatable.css') }}">
 @endpush
-
-@section('header', 'Daftar Pengguna')
 
 @section('content')
     <!--Notifikasi-->
@@ -29,7 +29,6 @@
                             <th>Nomor Telepon</th>
                             <th>Email</th>
                             <th>Password</th>
-                            {{-- <th>Aksi</th> --}}
                         </tr>
                     </thead>
 
@@ -44,30 +43,32 @@
                                 <td>
                                     <span class="badge bg-light-info">{{ $pengguna->password }}</span>
                                 </td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button type="button" class="btn btn-primary btn-sm dropdown-toggle"
-                                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Aksi
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <!--Tombol Update-->
-                                            <a href="{{ route('pengguna.edit', $pengguna->id) }}" class="dropdown-item">
-                                                <i class="bi bi-pen"></i> Edit
-                                            </a>
+                                @can('super-user')
+                                    <td>
+                                        <div class="dropdown">
+                                            <button type="button" class="btn btn-primary btn-sm dropdown-toggle"
+                                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Aksi
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <!--Tombol Update-->
+                                                <a href="{{ route('pengguna.edit', $pengguna->id) }}" class="dropdown-item">
+                                                    <i class="bi bi-pen"></i> Edit
+                                                </a>
 
-                                            <!--Tombol Hapus-->
-                                            <form action="{{ route('pengguna.destroy', $pengguna->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="dropdown-item">
-                                                    <i class="bi bi-trash3"></i> Hapus
-                                                </button>
-                                            </form>
+                                                <!--Tombol Hapus-->
+                                                <form action="{{ route('pengguna.destroy', $pengguna->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="dropdown-item">
+                                                        <i class="bi bi-trash3"></i> Hapus
+                                                    </button>
+                                                </form>
 
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
+                                    </td>
+                                @endcan
                             </tr>
                         @empty
                             Data Kosong

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Penduduk;
 use App\Http\Requests\StorePendudukRequest;
 use App\Http\Requests\UpdatePendudukRequest;
+use Illuminate\Support\Facades\Gate;
 
 class PendudukController extends Controller
 {
@@ -13,7 +14,14 @@ class PendudukController extends Controller
      */
     public function index()
     {
-        return view('admin.penduduk.daftar-penduduk');
+        //Cek Access
+        if (Gate::denies('super-user')) {
+            abort(403, 'Anda tidak bisa mengakses halaman ini');
+        }
+
+        $daftarPenduduk = Penduduk::all();
+
+        return view('admin.penduduk.daftar-penduduk', compact('daftarPenduduk'));
     }
 
     /**
