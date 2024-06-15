@@ -1,12 +1,6 @@
 - Login
     - show/hide eye
 
-- Menu Data Penduduk
-    - rancang tabel, model, controller
-    - view tabel data Penduduk
-    - tombol tambah, edit, hapus
-    - form tambah, edit
-
 - Menu Data Kelahiran
     - rancang tabel, model, controller
     - view tabel data kelahiran

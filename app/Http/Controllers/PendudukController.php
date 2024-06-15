@@ -57,7 +57,7 @@ class PendudukController extends Controller
      */
     public function edit(Penduduk $penduduk)
     {
-        //
+        return view('admin.penduduk.update-penduduk', compact('penduduk'));
     }
 
     /**
@@ -65,7 +65,9 @@ class PendudukController extends Controller
      */
     public function update(UpdatePendudukRequest $request, Penduduk $penduduk)
     {
-        //
+        $penduduk->update($request->validated());
+
+        return redirect()->route('penduduk.index')->with('success', 'Data penduduk berhasil diperbarui.');
     }
 
     /**
@@ -73,6 +75,7 @@ class PendudukController extends Controller
      */
     public function destroy(Penduduk $penduduk)
     {
-        //
+        $penduduk->delete();
+        return redirect()->route('penduduk.index')->with('success', 'Data penduduk telah dihapus.');
     }
 }
