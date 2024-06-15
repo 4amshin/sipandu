@@ -11,7 +11,7 @@ class StoreKelahiranRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class StoreKelahiranRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nama' => 'required|string|max:255',
+            'jenis_kelamin' => 'required|in:laki-laki,perempuan',
+            'tempat_lahir' => 'required|string|max:255',
+            'tanggal_lahir' => 'required|date',
+            'nama_ayah' => 'required|string|max:255',
+            'nama_ibu' => 'required|string|max:255',
         ];
     }
 }

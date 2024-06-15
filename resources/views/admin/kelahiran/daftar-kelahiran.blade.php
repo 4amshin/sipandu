@@ -48,12 +48,12 @@
                                     {{ $kelahiran->tempat_lahir }},
                                     {{ \Carbon\Carbon::parse($kelahiran->tanggal_lahir)->translatedFormat('d F Y') }}
                                 </td>
-                                <th>
+                                <td>
                                     {{ $kelahiran->nama_ayah }}
-                                </th>
-                                <th>
+                                </td>
+                                <td>
                                     {{ $kelahiran->nama_ibu }}
-                                </th>
+                                </td>
                                 @can('super-user')
                                     <td>
                                         <div class="dropdown">

@@ -6,7 +6,7 @@
     <div class="card">
         <!--Header-->
         <div class="card-header">
-            <h4 class="card-title">Tambah Penduduk</h4>
+            <h4 class="card-title">Tambah Data Penduduk</h4>
         </div>
 
         <!--Body-->

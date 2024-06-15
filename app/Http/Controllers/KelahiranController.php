@@ -25,7 +25,7 @@ class KelahiranController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.kelahiran.tambah-kelahiran');
     }
 
     /**
@@ -33,7 +33,11 @@ class KelahiranController extends Controller
      */
     public function store(StoreKelahiranRequest $request)
     {
-        //
+        // Buat data kelahiran baru
+        Kelahiran::create($request->validated());
+
+        // Redirect dengan pesan sukses
+        return redirect()->route('kelahiran.index')->with('success', 'Data Kelahiran berhasil ditambahkan');
     }
 
     /**
