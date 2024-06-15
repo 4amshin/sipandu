@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\KelahiranController;
 use App\Http\Controllers\LaporanController;
-use App\Http\Controllers\MeninggalController;
+use App\Http\Controllers\KematianController;
 use App\Http\Controllers\PendatangController;
 use App\Http\Controllers\PendudukController;
 use App\Http\Controllers\PenggunaController;
@@ -42,8 +42,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('kelahiran', KelahiranController::class);
 
 
-    /*-------------------------------MENINGGAL-------------------------------*/
-    Route::resource('meninggal', MeninggalController::class);
+    /*-------------------------------KEMATIAN-------------------------------*/
+    Route::resource('kematian', KematianController::class);
 
 
     /*-------------------------------PENDATANG-------------------------------*/

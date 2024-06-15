@@ -14,6 +14,7 @@ class Kelahiran extends Model
         'jenis_kelamin',
         'tempat_lahir',
         'tanggal_lahir',
+        'jam_lahir',
         'nama_ayah',
         'nama_ibu',
     ];

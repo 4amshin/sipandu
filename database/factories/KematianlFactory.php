@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Meninggal>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Kematian>
  */
-class MeninggalFactory extends Factory
+class KematianFactory extends Factory
 {
     /**
      * Define the model's default state.

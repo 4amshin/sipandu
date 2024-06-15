@@ -67,7 +67,7 @@
 
                 <!--List Data-->
                 <li
-                    class="sidebar-item {{ Request::is('penduduk*', 'kelahiran*', 'meninggal*', 'pendatang*', 'pindahan*') ? 'active' : '' }}  has-sub">
+                    class="sidebar-item {{ Request::is('penduduk*', 'kelahiran*', 'kematian*', 'pendatang*', 'pindahan*') ? 'active' : '' }}  has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-archive-fill"></i>
                         <span>Data</span>
@@ -85,9 +85,9 @@
                             <a href="{{ route('kelahiran.index') }}" class="submenu-link">Data Kelahiran</a>
                         </li>
 
-                        <!--Data Meninggal-->
-                        <li class="submenu-item {{ Request::is('meninggal*') ? 'active' : '' }} ">
-                            <a href="{{ route('meninggal.index') }}" class="submenu-link">Data Meninggal</a>
+                        <!--Data Kematian-->
+                        <li class="submenu-item {{ Request::is('kematian*') ? 'active' : '' }} ">
+                            <a href="{{ route('kematian.index') }}" class="submenu-link">Data Kematian</a>
                         </li>
 
                         <!--Data Pendatang-->

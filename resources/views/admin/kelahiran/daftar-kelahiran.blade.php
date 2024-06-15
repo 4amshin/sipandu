@@ -27,6 +27,7 @@
                             <th>Nama</th>
                             <th>Jenis Kelamin</th>
                             <th>Tempat Tanggal Lahir</th>
+                            <th>Pukul</th>
                             <th>Ayah</th>
                             <th>Ibu</th>
                         </tr>
@@ -47,6 +48,9 @@
                                 <td>
                                     {{ $kelahiran->tempat_lahir }},
                                     {{ \Carbon\Carbon::parse($kelahiran->tanggal_lahir)->translatedFormat('d F Y') }}
+                                </td>
+                                <td>
+                                    {{ \Carbon\Carbon::createFromFormat('H:i:s', $kelahiran->jam_lahir)->format('h:i A') }}
                                 </td>
                                 <td>
                                     {{ $kelahiran->nama_ayah }}

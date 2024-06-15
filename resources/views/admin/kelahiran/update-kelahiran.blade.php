@@ -64,6 +64,15 @@
                             </div>
                         </div>
 
+                        <!-- Jam Lahir -->
+                        <div class="col-md-6 col-12">
+                            <div class="form-group">
+                                <label for="jam_lahir">Jam Lahir</label>
+                                <input type="time" id="jam_lahir" class="form-control" name="jam_lahir"
+                                    value="{{ $kelahiran->jam_lahir }}" required>
+                            </div>
+                        </div>
+
                         <!--Nama Ayah-->
                         <div class="col-md-6 col-12">
                             <div class="form-group">

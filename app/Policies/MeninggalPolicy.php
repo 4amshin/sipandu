@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Meninggal;
+use App\Models\Kematian;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
-class MeninggalPolicy
+class KematianPolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -19,7 +19,7 @@ class MeninggalPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Meninggal $meninggal): bool
+    public function view(User $user, Kematian $kematian): bool
     {
         //
     }
@@ -35,7 +35,7 @@ class MeninggalPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Meninggal $meninggal): bool
+    public function update(User $user, Kematian $kematian): bool
     {
         //
     }
@@ -43,7 +43,7 @@ class MeninggalPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Meninggal $meninggal): bool
+    public function delete(User $user, Kematian $kematian): bool
     {
         //
     }
@@ -51,7 +51,7 @@ class MeninggalPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Meninggal $meninggal): bool
+    public function restore(User $user, Kematian $kematian): bool
     {
         //
     }
@@ -59,7 +59,7 @@ class MeninggalPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Meninggal $meninggal): bool
+    public function forceDelete(User $user, Kematian $kematian): bool
     {
         //
     }
