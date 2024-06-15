@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Penduduk extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nik',
+        'no_kk',
+        'nama',
+        'jenis_kelamin',
+        'rt',
+        'rw',
+        'kelurahan',
+        'kecamatan',
+        'kota ',
+        'provinsi',
+    ];
 }

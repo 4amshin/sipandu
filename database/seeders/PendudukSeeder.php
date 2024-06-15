@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Penduduk;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class PendudukSeeder extends Seeder
 {
@@ -12,6 +14,6 @@ class PendudukSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Penduduk::factory()->count(30)->create();
     }
 }
