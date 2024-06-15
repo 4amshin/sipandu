@@ -45,7 +45,6 @@ class KelahiranController extends Controller
      */
     public function show(Kelahiran $kelahiran)
     {
-        //
     }
 
     /**
@@ -53,7 +52,7 @@ class KelahiranController extends Controller
      */
     public function edit(Kelahiran $kelahiran)
     {
-        //
+        return view('admin.kelahiran.update-kelahiran', compact('kelahiran'));
     }
 
     /**
@@ -61,7 +60,9 @@ class KelahiranController extends Controller
      */
     public function update(UpdateKelahiranRequest $request, Kelahiran $kelahiran)
     {
-        //
+        $kelahiran->update($request->validated());
+
+        return redirect()->route('kelahiran.index')->with('success', 'Data kelahiran berhasil diperbarui.');
     }
 
     /**
@@ -69,6 +70,7 @@ class KelahiranController extends Controller
      */
     public function destroy(Kelahiran $kelahiran)
     {
-        //
+        $kelahiran->delete();
+        return redirect()->route('kelahiran.index')->with('success', 'Data Kelahiran telah dihapus.');
     }
 }
