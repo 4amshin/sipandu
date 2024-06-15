@@ -17,7 +17,7 @@
         <div class="card">
             <div class="card-body">
                 <!--Tombol Tambah Penduduk-->
-                <a href="{{ route('penduduk.create') }}" class="btn btn-primary mb-2">Tambah Penduduk</a>
+                <a href="{{ route('penduduk.create') }}" class="btn btn-primary mb-2">Tambah Data Penduduk</a>
 
                 <!--Tabel-->
                 <table class="table table-striped" id="table1">

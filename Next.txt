@@ -2,7 +2,4 @@
     - show/hide eye
 
 - Menu Data Kelahiran
-    - rancang tabel, model, controller
-    - view tabel data kelahiran
-    - tombol tambah, edit, hapus
     - form tambah, edit

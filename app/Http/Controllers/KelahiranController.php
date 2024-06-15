@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kelahiran;
 use App\Http\Requests\StoreKelahiranRequest;
 use App\Http\Requests\UpdateKelahiranRequest;
+use Illuminate\Support\Facades\Gate;
 
 class KelahiranController extends Controller
 {
@@ -13,7 +14,10 @@ class KelahiranController extends Controller
      */
     public function index()
     {
-        return view('admin.kelahiran.daftar-kelahiran');
+
+        $daftarKelahiran = Kelahiran::all();
+
+        return view('admin.kelahiran.daftar-kelahiran', compact('daftarKelahiran'));
     }
 
     /**
