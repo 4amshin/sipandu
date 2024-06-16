@@ -11,7 +11,7 @@ class StorePindahanRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class StorePindahanRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nama' => 'required|string|max:255',
+            'jenis_kelamin' => 'required|in:laki-laki,perempuan',
+            'nik' => 'required|string|max:16',
+            'tanggal_pindah' => 'required|date',
+            'alasan_pindah' => 'required|string',
         ];
     }
 }
