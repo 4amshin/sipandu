@@ -75,6 +75,7 @@ class PendatangController extends Controller
      */
     public function destroy(Pendatang $pendatang)
     {
-        //
+        $pendatang->delete();
+        return redirect()->route('pendatang.index')->with('success', 'Data pendatang telah dihapus.');
     }
 }

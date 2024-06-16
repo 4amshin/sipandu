@@ -11,7 +11,7 @@ class StorePendatangRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class StorePendatangRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nama' => 'required|string|max:255',
+            'jenis_kelamin' => 'required|in:laki-laki,perempuan',
+            'nik' => 'required|string|max:16|unique:pendatangs,nik',
+            'tanggal_datang' => 'required|date',
+            'nama_pelapor' => 'required|string|max:255',
+            'alamat_pendatang' => 'required|string',
         ];
     }
 }
