@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             KelahiranSeeder::class,
             KematianSeeder::class,
             PendatangSeeder::class,
+            PindahanSeeder::class,
         ]);
     }
 }

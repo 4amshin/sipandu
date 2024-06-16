@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pindahan;
 use App\Http\Requests\StorePindahanRequest;
 use App\Http\Requests\UpdatePindahanRequest;
+use Illuminate\Support\Facades\Gate;
 
 class PindahanController extends Controller
 {
@@ -13,7 +14,14 @@ class PindahanController extends Controller
      */
     public function index()
     {
-        return view('admin.pindahan.daftar-pindahan');
+        //Cek Access
+        if (Gate::denies('super-user')) {
+            abort(403, 'Anda tidak bisa mengakses halaman ini');
+        }
+
+        $daftarPindahan = Pindahan::all();
+
+        return view('admin.pindahan.daftar-pindahan', compact('daftarPindahan'));
     }
 
     /**
@@ -21,7 +29,7 @@ class PindahanController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pindahan.tambah-pindahan');
     }
 
     /**
@@ -29,7 +37,11 @@ class PindahanController extends Controller
      */
     public function store(StorePindahanRequest $request)
     {
-        //
+        // Buat pindahan baru
+        Pindahan::create($request->validated());
+
+        // Redirect dengan pesan sukses
+        return redirect()->route('pindahan.index')->with('success', 'Data pindahan berhasil ditambahkan');
     }
 
     /**
@@ -45,7 +57,7 @@ class PindahanController extends Controller
      */
     public function edit(Pindahan $pindahan)
     {
-        //
+        return view('admin.pindahan.update-pindahan', compact('pindahan'));
     }
 
     /**
@@ -53,7 +65,9 @@ class PindahanController extends Controller
      */
     public function update(UpdatePindahanRequest $request, Pindahan $pindahan)
     {
-        //
+        $pindahan->update($request->validated());
+
+        return redirect()->route('pindahan.index')->with('success', 'Data pindahan berhasil diperbarui.');
     }
 
     /**
@@ -61,6 +75,7 @@ class PindahanController extends Controller
      */
     public function destroy(Pindahan $pindahan)
     {
-        //
+        $pindahan->delete();
+        return redirect()->route('pindahan.index')->with('success', 'Data pindahan telah dihapus.');
     }
 }

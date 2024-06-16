@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('pindahans', function (Blueprint $table) {
             $table->id();
+            $table->string('nik', 16);
+            $table->string('nama');
+            $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
+            $table->date('tanggal_pindah');
+            $table->string('alasan_pindah');
             $table->timestamps();
         });
     }

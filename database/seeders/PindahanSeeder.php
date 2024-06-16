@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Pindahan;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,6 @@ class PindahanSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Pindahan::factory()->count(4)->create();
     }
 }
