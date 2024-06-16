@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pendatang;
 use App\Http\Requests\StorePendatangRequest;
 use App\Http\Requests\UpdatePendatangRequest;
+use Illuminate\Support\Facades\Gate;
 
 class PendatangController extends Controller
 {
@@ -13,7 +14,14 @@ class PendatangController extends Controller
      */
     public function index()
     {
-        return view('admin.pendatang.daftar-pendatang');
+        //Cek Access
+        if (Gate::denies('super-user')) {
+            abort(403, 'Anda tidak bisa mengakses halaman ini');
+        }
+
+        $daftarPendatang = Pendatang::all();
+
+        return view('admin.pendatang.daftar-pendatang', compact('daftarPendatang'));
     }
 
     /**
@@ -21,7 +29,7 @@ class PendatangController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pendatang.tambah-pendatang');
     }
 
     /**
@@ -29,7 +37,11 @@ class PendatangController extends Controller
      */
     public function store(StorePendatangRequest $request)
     {
-        //
+        // Buat pendatang baru
+        Pendatang::create($request->validated());
+
+        // Redirect dengan pesan sukses
+        return redirect()->route('pendatang.index')->with('success', 'Data pendatang berhasil ditambahkan');
     }
 
     /**
@@ -45,7 +57,7 @@ class PendatangController extends Controller
      */
     public function edit(Pendatang $pendatang)
     {
-        //
+        return view('admin.pendatang.update-pendatang', compact('pendatang'));
     }
 
     /**
@@ -53,7 +65,9 @@ class PendatangController extends Controller
      */
     public function update(UpdatePendatangRequest $request, Pendatang $pendatang)
     {
-        //
+        $pendatang->update($request->validated());
+
+        return redirect()->route('pendatang.index')->with('success', 'Data pendatang berhasil diperbarui.');
     }
 
     /**
