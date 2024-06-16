@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Pendatang;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,6 @@ class PendatangSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Pendatang::factory()->count(4)->create();
     }
 }

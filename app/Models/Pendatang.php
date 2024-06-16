@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Pendatang extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nik',
+        'nama',
+        'jenis_kelamin',
+        'tanggal_datang',
+        'nama_pelapor',
+        'alamat_pendatang',
+    ];
 }
