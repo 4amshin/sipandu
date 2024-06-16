@@ -60,7 +60,7 @@ class KematianController extends Controller
     {
         $kematian->update($request->validated());
 
-        return redirect()->route('kematian.index')->with('success', 'Data kematian berhasil diperbarui.');
+        return redirect()->route('kematians.index')->with('success', 'Data kematian berhasil diperbarui.');
     }
 
     /**

@@ -11,7 +11,7 @@ class UpdateKematianRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,15 @@ class UpdateKematianRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nik' => 'required|string|size:16',
+            'nama' => 'required|string|max:255',
+            'jenis_kelamin' => 'required|in:laki-laki,perempuan',
+            'tanggal_kematian' => 'required|date',
+            'jam_kematian' => 'required|date_format:H:i',
+            'tempat_kematian' => 'required|string|max:255',
+            'sebab' => 'required|string|max:255',
+            'nama_ayah' => 'required|string|max:255',
+            'nama_ibu' => 'required|string|max:255',
         ];
     }
 }
