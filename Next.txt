@@ -4,5 +4,5 @@
 - Menu Data Kelahiran
     - Update Bermasalah
 
-- Lanjut Data Pindahan
+- Lanjut ke bagian Laporan
 
