@@ -4,11 +4,6 @@
 
 @section('header', 'Daftar Pindahan')
 
-@push('customCss')
-    <link rel="stylesheet" href="{{ asset('assets/extensions/simple-datatables/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/compiled/css/table-datatable.css') }}">
-@endpush
-
 @section('content')
     <!--Notifikasi-->
     @include('layout.page-alert')
@@ -89,7 +84,3 @@
     </section>
 @endsection
 
-@push('customJs')
-    <script src={{ asset('assets/extensions/simple-datatables/umd/simple-datatables.js') }}></script>
-    <script src={{ asset('assets/static/js/pages/simple-datatables.js') }}></script>
-@endpush

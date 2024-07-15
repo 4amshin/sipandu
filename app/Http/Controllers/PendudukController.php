@@ -41,7 +41,7 @@ class PendudukController extends Controller
         Penduduk::create($request->validated());
 
         // Redirect dengan pesan sukses
-        return redirect()->route('penduduk.index')->with('success', 'Dat Penduduk berhasil ditambahkan');
+        return redirect()->route('penduduk.index')->with('success', 'Data Penduduk berhasil ditambahkan');
     }
 
     /**
