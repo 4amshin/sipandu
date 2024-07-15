@@ -135,7 +135,7 @@
                             <div class="form-group">
                                 <label for="pekerjaan">Pekerjaan</label>
                                 <input type="text" id="pekerjaan" class="form-control" placeholder="Pekerjaan"
-                                    name="pekerjaan" required>
+                                    name="pekerjaan">
                             </div>
                         </div>
 

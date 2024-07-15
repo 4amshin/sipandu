@@ -30,7 +30,7 @@ class StorePendudukRequest extends FormRequest
             'tanggal_lahir' => 'required|date',
             'agama' => 'required|string|in:Islam,Kristen,Katolik,Hindu,Buddha',
             'status_pernikahan' => 'required|string|in:kawin,belum_kawin',
-            'pekerjaan' => 'required|string|max:255',
+            'pekerjaan' => 'nullable|string|max:255',
             'rt' => 'required|integer|min:1',
             'rw' => 'required|integer|min:1',
             'dusun' => 'required|string|max:255',

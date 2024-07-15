@@ -6,7 +6,6 @@ use App\Models\Kelahiran;
 use App\Http\Requests\StoreKelahiranRequest;
 use App\Http\Requests\UpdateKelahiranRequest;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Log;
 
 class KelahiranController extends Controller
 {
@@ -61,13 +60,9 @@ class KelahiranController extends Controller
      */
     public function update(UpdateKelahiranRequest $request, Kelahiran $kelahiran)
     {
-        dd($request->all());
-        // atau
-        Log::info($request->all());
+        $kelahiran->update($request->validated());
 
-        // $kelahiran->update($request->validated());
-
-        // return redirect()->route('kelahiran.index')->with('success', 'Data kelahiran berhasil diperbarui.');
+        return redirect()->route('kelahiran.index')->with('success', 'Data kelahiran berhasil diperbarui.');
     }
 
     /**

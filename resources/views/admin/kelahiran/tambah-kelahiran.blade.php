@@ -53,7 +53,7 @@
                         </div>
 
                         <!-- Tanggal Lahir -->
-                        <div class="col-md-6 col-12">
+                        <div class="col-md-3 col-12">
                             <div class="form-group">
                                 <label for="tanggal_lahir">Tanggal Lahir</label>
                                 <input type="date" id="tanggal_lahir" class="form-control" name="tanggal_lahir" required>
@@ -61,7 +61,7 @@
                         </div>
 
                         <!-- Jam Lahir -->
-                        <div class="col-md-6 col-12">
+                        <div class="col-md-3 col-12">
                             <div class="form-group">
                                 <label for="jam_lahir">Jam Lahir</label>
                                 <input type="time" id="jam_lahir" class="form-control" name="jam_lahir" required>

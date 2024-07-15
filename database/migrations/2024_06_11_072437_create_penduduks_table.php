@@ -21,7 +21,7 @@ return new class extends Migration
             $table->date('tanggal_lahir');
             $table->string('agama');
             $table->enum('status_pernikahan', ['kawin', 'belum_kawin']);
-            $table->string('pekerjaan');
+            $table->string('pekerjaan')->nullable();
             $table->string('rt');
             $table->string('rw');
             $table->string('dusun');
