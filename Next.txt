@@ -1,8 +1,5 @@
+- Buatkan Logo dan ganti MAZER
 - Login
     - show/hide eye
-
-- Menu Data Kelahiran
-    - Update Bermasalah
-
-- Lanjut ke bagian Laporan
-
+- Buatkan Halaman Profile
+    - fitur upload gambar profile

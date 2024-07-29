@@ -48,5 +48,5 @@
     </table>
 
     <!--Tombol Cetak-->
-    <a href="" class="btn btn-primary mb-2">Cetak</a>
+    <a href="{{ route('export.kematian') }}" class="btn btn-primary mb-2">Cetak</a>
 </div>

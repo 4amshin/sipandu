@@ -26,9 +26,7 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     /*-------------------------------HOME-------------------------------*/
-    Route::get('home', function () {
-        return view('home');
-    })->name('home');
+    Route::get('home', [LaporanController::class, 'home'])->name('home');
 
     /*-------------------------------PENGGUNA-------------------------------*/
     Route::resource('pengguna', PenggunaController::class);
@@ -56,4 +54,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     /*-------------------------------LAPORAN-------------------------------*/
     Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
+
+
+    /*-------------------------------EXPORT DATA-------------------------------*/
+    Route::get('export/laporan-penduduk', [LaporanController::class, 'exportDataPenduduk'])->name('export.penduduk');
+    Route::get('export/laporan-kelahiran', [LaporanController::class, 'exportDataKelahiran'])->name('export.kelahiran');
+    Route::get('export/laporan-kematian', [LaporanController::class, 'exportDataKematian'])->name('export.kematian');
+    Route::get('export/laporan-pendatang', [LaporanController::class, 'exportDataPendatang'])->name('export.pendatang');
+    Route::get('export/laporan-pindahan', [LaporanController::class, 'exportDataPindahan'])->name('export.pindahan');
 });

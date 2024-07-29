@@ -15,7 +15,7 @@ class AuthServiceProvider extends ServiceProvider
         /*=======================================================*/
         'super-user' => ['admin'],
         /*=======================================================*/
-        'kepalaDesa-only' => ['kepala_desa'],
+        'kepdes-only' => ['kepala_desa'],
     ];
     /**
      * The model to policy mappings for the application.

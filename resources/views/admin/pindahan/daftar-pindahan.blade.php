@@ -44,7 +44,7 @@
                                     {{ \Carbon\Carbon::parse($pindahan->tanggal_pindah)->translatedFormat('d F Y') }}
                                 </td>
                                 <td>
-                                    {{ $pindahan->alasan }}
+                                    {{ $pindahan->alasan_pindah }}
                                 </td>
                                 @can('super-user')
                                     <td>

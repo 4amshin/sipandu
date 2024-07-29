@@ -19,9 +19,9 @@ return new class extends Migration
             $table->date('tanggal_kematian');
             $table->time('jam_kematian');
             $table->string('tempat_kematian');
-            $table->string('sebab');
-            $table->string('nama_ayah');
-            $table->string('nama_ibu');
+            $table->string('sebab')->nullable();
+            $table->string('nama_ayah')->nullable();
+            $table->string('nama_ibu')->nullable();
             $table->timestamps();
         });
     }

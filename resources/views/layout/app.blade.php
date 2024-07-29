@@ -43,7 +43,7 @@
             </div>
 
             <!--Footer-->
-            @include('layout.footer')
+            {{-- @include('layout.footer') --}}
         </div>
     </div>
     <script src="{{ asset('assets/static/js/components/dark.js') }}"></script>

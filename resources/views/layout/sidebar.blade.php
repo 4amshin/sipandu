@@ -57,50 +57,52 @@
                     </a>
                 </li>
 
-                <!--Daftar Pengguna-->
-                <li class="sidebar-item {{ Request::is('pengguna*') ? 'active' : '' }}">
-                    <a href="{{ route('pengguna.index') }}" class='sidebar-link'>
-                        <i class="bi bi-person-fill-gear"></i>
-                        <span>Daftar Pengguna</span>
-                    </a>
-                </li>
+                @can('super-user')
+                    <!--Daftar Pengguna-->
+                    <li class="sidebar-item {{ Request::is('pengguna*') ? 'active' : '' }}">
+                        <a href="{{ route('pengguna.index') }}" class='sidebar-link'>
+                            <i class="bi bi-person-fill-gear"></i>
+                            <span>Daftar Pengguna</span>
+                        </a>
+                    </li>
 
-                <!--List Data-->
-                <li
-                    class="sidebar-item {{ Request::is('penduduk*', 'kelahiran*', 'kematian*', 'pendatang*', 'pindahan*') ? 'active' : '' }}  has-sub">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-archive-fill"></i>
-                        <span>Data</span>
-                    </a>
+                    <!--List Data-->
+                    <li
+                        class="sidebar-item {{ Request::is('penduduk*', 'kelahiran*', 'kematian*', 'pendatang*', 'pindahan*') ? 'active' : '' }}  has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-archive-fill"></i>
+                            <span>Data</span>
+                        </a>
 
-                    <!--List Menu Data-->
-                    <ul class="submenu ">
-                        <!--Data Penduduk-->
-                        <li class="submenu-item {{ Request::is('penduduk*') ? 'active' : '' }}">
-                            <a href="{{ route('penduduk.index') }}" class="submenu-link">Data Penduduk</a>
-                        </li>
+                        <!--List Menu Data-->
+                        <ul class="submenu ">
+                            <!--Data Penduduk-->
+                            <li class="submenu-item {{ Request::is('penduduk*') ? 'active' : '' }}">
+                                <a href="{{ route('penduduk.index') }}" class="submenu-link">Data Penduduk</a>
+                            </li>
 
-                        <!--Data Kelahiran-->
-                        <li class="submenu-item  {{ Request::is('kelahiran*') ? 'active' : '' }}">
-                            <a href="{{ route('kelahiran.index') }}" class="submenu-link">Data Kelahiran</a>
-                        </li>
+                            <!--Data Kelahiran-->
+                            <li class="submenu-item  {{ Request::is('kelahiran*') ? 'active' : '' }}">
+                                <a href="{{ route('kelahiran.index') }}" class="submenu-link">Data Kelahiran</a>
+                            </li>
 
-                        <!--Data Kematian-->
-                        <li class="submenu-item {{ Request::is('kematian*') ? 'active' : '' }} ">
-                            <a href="{{ route('kematian.index') }}" class="submenu-link">Data Kematian</a>
-                        </li>
+                            <!--Data Kematian-->
+                            <li class="submenu-item {{ Request::is('kematian*') ? 'active' : '' }} ">
+                                <a href="{{ route('kematian.index') }}" class="submenu-link">Data Kematian</a>
+                            </li>
 
-                        <!--Data Pendatang-->
-                        <li class="submenu-item  {{ Request::is('pendatang*') ? 'active' : '' }}">
-                            <a href="{{ route('pendatang.index') }}" class="submenu-link">Data Pendatang</a>
-                        </li>
+                            <!--Data Pendatang-->
+                            <li class="submenu-item  {{ Request::is('pendatang*') ? 'active' : '' }}">
+                                <a href="{{ route('pendatang.index') }}" class="submenu-link">Data Pendatang</a>
+                            </li>
 
-                        <!--Data Pindahan-->
-                        <li class="submenu-item  {{ Request::is('pindahan*') ? 'active' : '' }}">
-                            <a href="{{ route('pindahan.index') }}" class="submenu-link">Data Pindahan</a>
-                        </li>
-                    </ul>
-                </li>
+                            <!--Data Pindahan-->
+                            <li class="submenu-item  {{ Request::is('pindahan*') ? 'active' : '' }}">
+                                <a href="{{ route('pindahan.index') }}" class="submenu-link">Data Pindahan</a>
+                            </li>
+                        </ul>
+                    </li>
+                @endcan
 
                 <!--Menu Laporan-->
                 <li class="sidebar-item {{ Request::is('laporan*') ? 'active' : '' }}">

@@ -29,7 +29,7 @@
                         {{ \Carbon\Carbon::parse($pindahan->tanggal_pindah)->translatedFormat('d F Y') }}
                     </td>
                     <td>
-                        {{ $pindahan->alasan }}
+                        {{ $pindahan->alasan_pindah }}
                     </td>
                 </tr>
             @empty
@@ -39,5 +39,5 @@
     </table>
 
     <!--Tombol Cetak-->
-    <a href="" class="btn btn-primary mb-2">Cetak</a>
+    <a href="{{ route('export.pindahan') }}" class="btn btn-primary mb-2">Cetak</a>
 </div>
