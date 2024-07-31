@@ -112,6 +112,17 @@
                     </a>
                 </li>
 
+                <li class="sidebar-title">Lainnya</li>
+
+                <!--Profile-->
+                <li class="sidebar-item {{ Request::is('profile*') ? 'active' : '' }}">
+                    <a href="{{ route('profile') }}" class='sidebar-link'>
+                        <i class="bi bi-person-circle"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+
+                <!--LogOut-->
                 <li class="sidebar-item m-3">
                     <form action="{{ route('logout') }}" method="post">
                         @csrf

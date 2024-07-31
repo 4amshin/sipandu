@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Pengguna;
 use App\Http\Requests\StorePenggunaRequest;
 use App\Http\Requests\UpdatePenggunaRequest;
+use App\Http\Requests\UpdateProfileRequest;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 
 class PenggunaController extends Controller
 {
@@ -14,7 +16,6 @@ class PenggunaController extends Controller
      */
     public function index()
     {
-
         //Cek Access
         if (Gate::denies('super-user')) {
             abort(403, 'Anda tidak bisa mengakses halaman ini');
@@ -23,6 +24,39 @@ class PenggunaController extends Controller
         $daftarPengguna = Pengguna::all();
 
         return view('admin.pengguna.daftar-pengguna', compact('daftarPengguna'));
+    }
+
+    public function profile()
+    {
+        $user = auth()->user();
+        $pengguna = Pengguna::where('email', $user->email)->first();
+
+        return view('auth.profile', compact('pengguna'));
+    }
+
+    public function updateProfile(UpdateProfileRequest $request, Pengguna $pengguna)
+    {
+        $validated = $request->validated();
+
+        $oldFoto = $pengguna->gambar_profile;
+        $gambarProfile = $request->file('gambar_profile');
+
+        if ($request->hasFile('gambar_profile')) {
+            if (!Storage::exists('public/profile')) {
+                Storage::makeDirectory('public/profile');
+            }
+
+            $gambarProfile->store('public/profile');
+            $validated['gambar_profile'] = $gambarProfile->hashName();
+
+            if ($oldFoto) {
+                Storage::disk('public/profile')->delete($oldFoto);
+            }
+        }
+
+        $pengguna->update($validated);
+
+        return redirect()->back()->with('success', 'Profile Berhasil diperbarui');
     }
 
     /**

@@ -13,6 +13,6 @@ class PendatangSeeder extends Seeder
      */
     public function run(): void
     {
-        Pendatang::factory()->count(4)->create();
+        Pendatang::factory()->count(109)->create();
     }
 }

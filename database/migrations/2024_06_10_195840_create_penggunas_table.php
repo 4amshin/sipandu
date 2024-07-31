@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('nip');
             $table->string('nomor_telepon')->nullable();
             $table->enum('role', ['admin', 'kepala_desa'])->default('admin');
+            $table->string('gambar_profile')->nullable();
             $table->string('email')->unique();
             $table->string('password');
             $table->timestamps();

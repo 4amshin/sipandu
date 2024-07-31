@@ -13,6 +13,6 @@ class PindahanSeeder extends Seeder
      */
     public function run(): void
     {
-        Pindahan::factory()->count(4)->create();
+        Pindahan::factory()->count(24)->create();
     }
 }

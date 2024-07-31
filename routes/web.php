@@ -27,6 +27,8 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->group(function () {
     /*-------------------------------HOME-------------------------------*/
     Route::get('home', [LaporanController::class, 'home'])->name('home');
+    Route::get('profile', [PenggunaController::class, 'profile'])->name('profile');
+    Route::put('profile/update/{pengguna}', [PenggunaController::class, 'updateProfile'])->name('profile.update');
 
     /*-------------------------------PENGGUNA-------------------------------*/
     Route::resource('pengguna', PenggunaController::class);

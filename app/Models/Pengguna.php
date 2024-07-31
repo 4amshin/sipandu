@@ -14,6 +14,7 @@ class Pengguna extends Model
         'nip',
         'nomor_telepon',
         'role',
+        'gambar_profile',
         'email',
         'password',
     ];

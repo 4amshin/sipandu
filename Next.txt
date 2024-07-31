@@ -1,5 +1,3 @@
 - Buatkan Logo dan ganti MAZER
 - Login
     - show/hide eye
-- Buatkan Halaman Profile
-    - fitur upload gambar profile
