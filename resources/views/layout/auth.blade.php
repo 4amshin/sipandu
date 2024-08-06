@@ -20,27 +20,15 @@
 <body>
     <script src="{{ asset('assets/static/js/initTheme.js') }}"></script>
     <div id="auth">
-        <div class="row h-100">
+        <div class="row h-100 d-flex justify-content-center align-items-center">
             <!--Bagian Kiri-->
-            <div class="col-lg-5 col-12">
-                <div id="auth-left">
-                    <!--Logo-->
-                    @include('layout.logo')
-
-                    <!--Content-->
-                    @yield('content')
-                </div>
-            </div>
-
-            <!--Bagian Kanan-->
-            <div class="col-lg-7 d-none d-lg-block">
-                <div id="auth-right">
-                </div>
+            <div class="col-12">
+                <!--Content-->
+                @yield('content')
             </div>
         </div>
     </div>
 
     @stack('customJs')
 </body>
-
 </html>

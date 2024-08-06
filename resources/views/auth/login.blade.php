@@ -3,63 +3,72 @@
 @section('title', 'Login')
 
 @section('content')
-    <!--Title-->
-    <h1 class="auth-title">SIPANDU</h1>
-    <p class="auth-subtitle mb-5">Sistem Pendataan Penduduk Desa Padang Kalua</p>
+    <div class="row">
+        <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
 
-    <!--Form-->
-    <form action="{{ route('login') }}" method="POST">
-        @csrf
-        <!--Email-->
-        <div class="form-group position-relative has-icon-left mb-4">
-            <!--Input-->
-            <input type="text" name="email" class="form-control form-control-xl @error('email') is-invalid @enderror"
-                placeholder="Email">
-
-            <!--Icon-->
-            <div class="form-control-icon">
-                <i class="bi bi-envelope"></i>
+            <!--Logo-->
+            <div class="login-brand mb-3">
+                <img src="{{ asset('assets/compiled/svg/logo.svg') }}" alt="logo" width="150" class="shadow-light">
             </div>
 
-            <!--Pesan Eror-->
-            @error('email')
-                <div class="invalid-feedback">
-                    {{ $message }}
+            <!--Main Body-->
+            <div class="card card-primary">
+                <!--Title-->
+                <div class="card-header">
+                    <h4>Login</h4>
                 </div>
-            @enderror
-        </div>
 
-        <!--Password-->
-        <div class="form-group position-relative has-icon-left mb-4">
-            <!--Input-->
-            <input type="password" name="password"
-                class="form-control form-control-xl @error('password') is-invalid @enderror" placeholder="Password">
+                <!--Body-->
+                <div class="card-body">
+                    <form method="POST" action="{{ route('login') }}" class="needs-validation" novalidate="">
+                        @csrf
 
-            <!--Icon-->
-            <div class="form-control-icon">
-                <i class="bi bi-shield-lock"></i>
+                        <!--Email-->
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                                name="email" tabindex="1" autofocus>
+
+                            <!--Penampil Pesan Eror-->
+                            @error('email')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <!--Password-->
+                        <div class="form-group">
+                            <!--Title-->
+                            <label for="password">Password</label>
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                                name="password" tabindex="1" autofocus>
+
+                            <!--Penampil Pesan Error-->
+                            @error('password')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <!--Tombol Login-->
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                                Login
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
 
-            <!--Pesan Eror-->
-            @error('password')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
+            <!--Footer-->
+            <div class="simple-footer">
+                Copyright &copy; Sipandu 2024
+
+            </div>
         </div>
-
-        <!--Tombol Login-->
-        <button type="submit" class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Log in</button>
-    </form>
-
-    <!--Link Lupa Password-->
-    <div class="text-center mt-5 text-lg fs-4">
-        <p>
-            <a class="font-bold" href="{{ route('password.request') }}">Lupa Password?</a>
-        </p>
     </div>
 @endsection
 
-@push('customJs')
-    <script src="{{ asset('assets/custom.js') }}"></script>
-@endpush
+
