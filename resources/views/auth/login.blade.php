@@ -7,15 +7,15 @@
         <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
 
             <!--Logo-->
-            <div class="login-brand mb-3">
-                <img src="{{ asset('assets/compiled/svg/logo.svg') }}" alt="logo" width="150" class="shadow-light">
+            <div class="login-brand mb-3 d-flex justify-content-center">
+                <h3>LOGIN</h3>
             </div>
 
             <!--Main Body-->
             <div class="card card-primary">
                 <!--Title-->
-                <div class="card-header">
-                    <h4>Login</h4>
+                <div class="card-header d-flex justify-content-center">
+                    <h4>KANTOR DESA PADANG KALUA</h4>
                 </div>
 
                 <!--Body-->
@@ -63,9 +63,8 @@
             </div>
 
             <!--Footer-->
-            <div class="simple-footer">
-                Copyright &copy; Sipandu 2024
-
+            <div class="simple-footer d-flex justify-content-center">
+                Copyright &copy; SIPANDU 2024
             </div>
         </div>
     </div>
