@@ -8,7 +8,7 @@
 
             <!--Logo-->
             <div class="login-brand mb-3 d-flex justify-content-center">
-                <h3>LOGIN</h3>
+                <img src="{{ asset('assets/compiled/logo.png') }}" alt="logo" height="100" class="shadow-light">
             </div>
 
             <!--Main Body-->
