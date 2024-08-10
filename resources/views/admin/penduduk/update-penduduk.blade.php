@@ -1,164 +1,136 @@
-@extends('layout.app-no-sidebar')
+@extends('layout.app')
 
 @section('title', 'Update Penduduk')
 
+@section('header', 'Update Data Penduduk')
+
 @section('content')
     <div class="card">
-        <!--Header-->
-        <div class="card-header">
-            <h4 class="card-title">Update Penduduk</h4>
-        </div>
-
-        <!--Body-->
         <div class="card-content">
             <div class="card-body">
-                <!--Form-->
-                <form class="form" action="{{ route('penduduk.update', $penduduk->id) }}" method="POST">
+                <form class="form form-horizontal" action="{{ route('penduduk.update', $penduduk->id) }}" method="POST">
                     @csrf
-                    @method('PUT')
-
-                    <div class="row">
-                        <!--Nama-->
-                        <div class="col-md-6 col-12">
-                            <div class="form-group">
-                                <label for="nama">Nama</label>
-                                <input type="text" id="nama" class="form-control" placeholder="Nama Lengkap"
-                                    name="nama" value="{{ $penduduk->nama }}" required>
-                            </div>
-                        </div>
-
-                        <!--Jenis Kelamin-->
-                        <div class="col-md-6 col-12">
-                            <div class="form-group">
-                                <label for="jenis_kelamin">Jenis Kelamin</label>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin1"
-                                        value="laki-laki" {{ $penduduk->jenis_kelamin == 'laki-laki' ? 'checked' : '' }}
-                                        required>
-                                    <label class="form-check-label" for="jenis_kelamin1">Laki-Laki</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin2"
-                                        value="perempuan" {{ $penduduk->jenis_kelamin == 'perempuan' ? 'checked' : '' }}
-                                        required>
-                                    <label class="form-check-label" for="jenis_kelamin2">Perempuan</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Tempat Lahir -->
-                        <div class="col-md-6 col-12">
-                            <div class="form-group">
-                                <label for="tempat_lahir">Tempat Lahir</label>
-                                <input type="text" id="tempat_lahir" class="form-control" placeholder="Tempat Lahir"
-                                    name="tempat_lahir" value="{{ $penduduk->tempat_lahir }}" required>
-                            </div>
-                        </div>
-
-                        <!-- Tanggal Lahir -->
-                        <div class="col-md-6 col-12">
-                            <div class="form-group">
-                                <label for="tanggal_lahir">Tanggal Lahir</label>
-                                <input type="date" id="tanggal_lahir" class="form-control" name="tanggal_lahir"
-                                    value="{{ $penduduk->tanggal_lahir }}" required>
-                            </div>
-                        </div>
-
-                        <!--NIK-->
-                        <div class="col-md-6 col-12">
-                            <div class="form-group">
+                    @method('PUT') <!-- Method untuk update -->
+                    <div class="form-body">
+                        <div class="row">
+                            <!--NIK-->
+                            <div class="col-md-4">
                                 <label for="nik">NIK</label>
-                                <input type="text" id="nik" class="form-control" placeholder="16 Digit NIK"
-                                    name="nik" maxlength="16" value="{{ $penduduk->nik }}" required>
                             </div>
-                        </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" id="nik" class="form-control" placeholder="16 Digiti NIK"
+                                    name="nik" maxlength="16" value="{{ old('nik', $penduduk->nik) }}" required>
+                            </div>
 
-                        <!--NO KK-->
-                        <div class="col-md-6 col-12">
-                            <div class="form-group">
+                            <!--NO KK-->
+                            <div class="col-md-4">
                                 <label for="no_kk">NO KK</label>
-                                <input type="text" id="no_kk" class="form-control" placeholder="16 Digit NO KK"
-                                    name="no_kk" maxlength="16" value="{{ $penduduk->no_kk }}" required>
                             </div>
-                        </div>
-
-                        <!--RT-->
-                        <div class="col-md-6 col-12">
-                            <div class="form-group">
-                                <label for="rt">Rukun Tetangga (RT)</label>
-                                <input type="number" id="rt" class="form-control" placeholder="RT" name="rt"
-                                    value="{{ $penduduk->rt }}" required>
+                            <div class="col-md-8 form-group">
+                                <input type="text" id="no_kk" class="form-control" placeholder="16 Digiti NO KK"
+                                    name="no_kk" maxlength="16" value="{{ old('no_kk', $penduduk->no_kk) }}" required>
                             </div>
-                        </div>
 
-                        <!--RW-->
-                        <div class="col-md-6 col-12">
-                            <div class="form-group">
-                                <label for="rw">Rukun Warga (RW)</label>
-                                <input type="number" id="rw" class="form-control" placeholder="RW" name="rw"
-                                    value="{{ $penduduk->rw }}" required>
+                            <!--Nama-->
+                            <div class="col-md-4">
+                                <label for="nama">Nama</label>
                             </div>
-                        </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" id="nama" class="form-control" placeholder="Nama Lengkap"
+                                    name="nama" value="{{ old('nama', $penduduk->nama) }}" required>
+                            </div>
 
-                        <!--Dusun-->
-                        <div class="col-md-6 col-12">
-                            <div class="form-group">
+                            <!--Tempat Tanggal Lahir-->
+                            <div class="col-md-4">
+                                <label for="tempat_lahir">Tempat/Tgl Lahir</label>
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <input type="text" id="tempat_lahir" class="form-control" placeholder="Tempat Lahir"
+                                    name="tempat_lahir" value="{{ old('tempat_lahir', $penduduk->tempat_lahir) }}" required>
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <input type="date" id="tanggal_lahir" class="form-control" name="tanggal_lahir"
+                                    value="{{ old('tanggal_lahir', $penduduk->tanggal_lahir) }}" required>
+                            </div>
+
+                            <!--Jenis Kelamin-->
+                            <div class="col-md-4">
+                                <label for="jenis_kelamin">Jenis Kelamin</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <select class="form-select" id="jenis_kelamin" name="jenis_kelamin" required>
+                                    <option value="" disabled>Pilih</option>
+                                    <option value="laki-laki" {{ old('jenis_kelamin', $penduduk->jenis_kelamin) == 'laki-laki' ? 'selected' : '' }}>Laki-Laki</option>
+                                    <option value="perempuan" {{ old('jenis_kelamin', $penduduk->jenis_kelamin) == 'perempuan' ? 'selected' : '' }}>Perempuan</option>
+                                </select>
+                            </div>
+
+                            <!--Dusun-->
+                            <div class="col-md-4">
                                 <label for="dusun">Dusun</label>
+                            </div>
+                            <div class="col-md-8 form-group">
                                 <input type="text" id="dusun" class="form-control" placeholder="Dusun" name="dusun"
-                                    value="{{ $penduduk->dusun }}" required>
+                                    value="{{ old('dusun', $penduduk->dusun) }}" required>
                             </div>
-                        </div>
 
-                        <!-- Agama -->
-                        <div class="col-md-6 col-12">
-                            <label for="agama">Agama</label>
-                            <fieldset class="form-group">
+                            <!--RT/RW-->
+                            <div class="col-md-4">
+                                <label for="rt_rw">RT/RW</label>
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <input type="number" id="rt" class="form-control" placeholder="RT" name="rt"
+                                    value="{{ old('rt', $penduduk->rt) }}" required>
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <input type="number" id="rw" class="form-control" placeholder="RW" name="rw"
+                                    value="{{ old('rw', $penduduk->rw) }}" required>
+                            </div>
+
+                            <!--Agama-->
+                            <div class="col-md-4">
+                                <label for="agama">Agama</label>
+                            </div>
+                            <div class="col-md-8 form-group">
                                 <select id="agama" class="form-select" name="agama" required>
-                                    <option value="Islam" {{ $penduduk->agama == 'Islam' ? 'selected' : '' }}>Islam
-                                    </option>
-                                    <option value="Kristen" {{ $penduduk->agama == 'Kristen' ? 'selected' : '' }}>Kristen
-                                    </option>
-                                    <option value="Katolik" {{ $penduduk->agama == 'Katolik' ? 'selected' : '' }}>Katolik
-                                    </option>
-                                    <option value="Hindu" {{ $penduduk->agama == 'Hindu' ? 'selected' : '' }}>Hindu
-                                    </option>
-                                    <option value="Buddha" {{ $penduduk->agama == 'Buddha' ? 'selected' : '' }}>Buddha
-                                    </option>
+                                    <option value="" disabled>Pilih</option>
+                                    <option value="Islam" {{ old('agama', $penduduk->agama) == 'Islam' ? 'selected' : '' }}>Islam</option>
+                                    <option value="Kristen" {{ old('agama', $penduduk->agama) == 'Kristen' ? 'selected' : '' }}>Kristen</option>
+                                    <option value="Katolik" {{ old('agama', $penduduk->agama) == 'Katolik' ? 'selected' : '' }}>Katolik</option>
+                                    <option value="Hindu" {{ old('agama', $penduduk->agama) == 'Hindu' ? 'selected' : '' }}>Hindu</option>
+                                    <option value="Buddha" {{ old('agama', $penduduk->agama) == 'Buddha' ? 'selected' : '' }}>Buddha</option>
                                 </select>
-                            </fieldset>
-                        </div>
-
-                        <!-- Status Pernikahan -->
-                        <div class="col-md-6 col-12">
-                            <label for="status_pernikahan">Status Pernikahan</label>
-                            <fieldset class="form-group">
-                                <select id="status_pernikahan" class="form-select" name="status_pernikahan" required>
-                                    <option value="belum_kawin"
-                                        {{ $penduduk->status_pernikahan == 'belum_kawin' ? 'selected' : '' }}>Belum Kawin
-                                    </option>
-                                    <option value="kawin"
-                                        {{ $penduduk->status_pernikahan == 'kawin' ? 'selected' : '' }}>Kawin</option>
-                                </select>
-                            </fieldset>
-                        </div>
-
-                        <!-- Pekerjaan -->
-                        <div class="col-md-6 col-12">
-                            <div class="form-group">
-                                <label for="pekerjaan">Pekerjaan</label>
-                                <input type="text" id="pekerjaan" class="form-control" placeholder="Pekerjaan"
-                                    name="pekerjaan" value="{{ $penduduk->pekerjaan }}">
                             </div>
-                        </div>
 
-                        <div class="col-12 d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
-                            <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                            <!--Status Pernikahan-->
+                            <div class="col-md-4">
+                                <label for="status_pernikahan">Status Pernikahan</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <select id="status_pernikahan" class="form-select" name="status_pernikahan" required>
+                                    <option value="" disabled>Pilih</option>
+                                    <option value="belum_kawin" {{ old('status_pernikahan', $penduduk->status_pernikahan) == 'belum_kawin' ? 'selected' : '' }}>Belum Kawin</option>
+                                    <option value="kawin" {{ old('status_pernikahan', $penduduk->status_pernikahan) == 'kawin' ? 'selected' : '' }}>Kawin</option>
+                                </select>
+                            </div>
+
+                            <!--Pekerjaan-->
+                            <div class="col-md-4">
+                                <label for="pekerjaan">Pekerjaan</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" id="pekerjaan" class="form-control" placeholder="Pekerjaan"
+                                    name="pekerjaan" value="{{ old('pekerjaan', $penduduk->pekerjaan) }}">
+                            </div>
+
+                            <div class="col-sm-12 d-flex justify-content-end">
+                                <button type="submit" class="btn btn-primary me-1 mb-1">Update</button>
+                                <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                            </div>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-
     </div>
 @endsection

@@ -13,6 +13,6 @@ class KematianSeeder extends Seeder
      */
     public function run(): void
     {
-        Kematian::factory()->count(210)->create();
+        Kematian::factory()->count(10)->create();
     }
 }

@@ -12,10 +12,11 @@ class Kelahiran extends Model
     protected $fillable = [
         'nama',
         'jenis_kelamin',
-        'tempat_lahir',
+        // 'tempat_lahir',
         'tanggal_lahir',
-        'jam_lahir',
-        'nama_ayah',
-        'nama_ibu',
+        // 'jam_lahir',
+        'keluarga',
+        // 'nama_ayah',
+        // 'nama_ibu',
     ];
 }

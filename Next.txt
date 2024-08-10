@@ -1,3 +1,8 @@
-- Buatkan Logo dan ganti MAZER
 - Login
     - show/hide eye
+
+=============
+REVISI UI
+- sesuaikan persis Desgn dengan tampilan
+    - perbaiki semua form
+    - gunakkna Data Penduduk>Tambah (beigini)

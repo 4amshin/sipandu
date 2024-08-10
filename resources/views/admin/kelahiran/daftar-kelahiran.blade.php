@@ -19,12 +19,14 @@
                     <!--Head-->
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Nama</th>
+                            <th>Tanggal Lahir</th>
                             <th>Jenis Kelamin</th>
-                            <th>Tempat Tanggal Lahir</th>
-                            <th>Pukul</th>
-                            <th>Ayah</th>
-                            <th>Ibu</th>
+                            <th>Keluarga</th>
+                            {{-- <th>Pukul</th> --}}
+                            {{-- <th>Ayah</th>
+                            <th>Ibu</th> --}}
                         </tr>
                     </thead>
 
@@ -32,7 +34,12 @@
                     <tbody>
                         @forelse ($daftarKelahiran as $kelahiran)
                             <tr>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $kelahiran->nama }}</td>
+                                <td>
+                                    {{-- {{ $kelahiran->tempat_lahir }}, --}}
+                                    {{ \Carbon\Carbon::parse($kelahiran->tanggal_lahir)->translatedFormat('d F Y') }}
+                                </td>
                                 <td>
                                     @if ($kelahiran->jenis_kelamin == 'laki-laki')
                                         <span class="badge bg-light-info">Laki-Laki</span>
@@ -41,18 +48,17 @@
                                     @endif
                                 </td>
                                 <td>
-                                    {{ $kelahiran->tempat_lahir }},
-                                    {{ \Carbon\Carbon::parse($kelahiran->tanggal_lahir)->translatedFormat('d F Y') }}
+                                    Keluarga
                                 </td>
-                                <td>
+                                {{-- <td>
                                     {{ \Carbon\Carbon::createFromFormat('H:i:s', $kelahiran->jam_lahir)->format('h:i A') }}
-                                </td>
-                                <td>
+                                </td> --}}
+                                {{-- <td>
                                     {{ $kelahiran->nama_ayah }}
                                 </td>
                                 <td>
                                     {{ $kelahiran->nama_ibu }}
-                                </td>
+                                </td> --}}
                                 @can('super-user')
                                     <td>
                                         <div class="dropdown">
