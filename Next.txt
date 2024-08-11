@@ -3,6 +3,6 @@
 
 =============
 REVISI UI
-- sesuaikan persis Desgn dengan tampilan
-    - perbaiki semua form
-    - gunakkna Data Penduduk>Tambah (beigini)
+- Sesuaikan UI dengan desain Proposal
+    - Pendudk, Kelahiran (selesai)
+    - sisanya masih terdapat design yang tidak sesuai dengan (tunggu klien)

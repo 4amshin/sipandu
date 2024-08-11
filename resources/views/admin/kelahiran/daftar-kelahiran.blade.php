@@ -48,7 +48,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    Keluarga
+                                    {{ $kelahiran->keluarga }}
                                 </td>
                                 {{-- <td>
                                     {{ \Carbon\Carbon::createFromFormat('H:i:s', $kelahiran->jam_lahir)->format('h:i A') }}

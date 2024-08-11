@@ -18,6 +18,7 @@ class Penduduk extends Model
         'tanggal_lahir',
         'agama',
         'status_pernikahan',
+        'pendidikan',
         'pekerjaan',
         'rt',
         'rw',

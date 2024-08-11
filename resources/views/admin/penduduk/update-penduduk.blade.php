@@ -60,8 +60,12 @@
                             <div class="col-md-8 form-group">
                                 <select class="form-select" id="jenis_kelamin" name="jenis_kelamin" required>
                                     <option value="" disabled>Pilih</option>
-                                    <option value="laki-laki" {{ old('jenis_kelamin', $penduduk->jenis_kelamin) == 'laki-laki' ? 'selected' : '' }}>Laki-Laki</option>
-                                    <option value="perempuan" {{ old('jenis_kelamin', $penduduk->jenis_kelamin) == 'perempuan' ? 'selected' : '' }}>Perempuan</option>
+                                    <option value="laki-laki"
+                                        {{ old('jenis_kelamin', $penduduk->jenis_kelamin) == 'laki-laki' ? 'selected' : '' }}>
+                                        Laki-Laki</option>
+                                    <option value="perempuan"
+                                        {{ old('jenis_kelamin', $penduduk->jenis_kelamin) == 'perempuan' ? 'selected' : '' }}>
+                                        Perempuan</option>
                                 </select>
                             </div>
 
@@ -94,11 +98,18 @@
                             <div class="col-md-8 form-group">
                                 <select id="agama" class="form-select" name="agama" required>
                                     <option value="" disabled>Pilih</option>
-                                    <option value="Islam" {{ old('agama', $penduduk->agama) == 'Islam' ? 'selected' : '' }}>Islam</option>
-                                    <option value="Kristen" {{ old('agama', $penduduk->agama) == 'Kristen' ? 'selected' : '' }}>Kristen</option>
-                                    <option value="Katolik" {{ old('agama', $penduduk->agama) == 'Katolik' ? 'selected' : '' }}>Katolik</option>
-                                    <option value="Hindu" {{ old('agama', $penduduk->agama) == 'Hindu' ? 'selected' : '' }}>Hindu</option>
-                                    <option value="Buddha" {{ old('agama', $penduduk->agama) == 'Buddha' ? 'selected' : '' }}>Buddha</option>
+                                    <option value="Islam"
+                                        {{ old('agama', $penduduk->agama) == 'Islam' ? 'selected' : '' }}>Islam</option>
+                                    <option value="Kristen"
+                                        {{ old('agama', $penduduk->agama) == 'Kristen' ? 'selected' : '' }}>Kristen
+                                    </option>
+                                    <option value="Katolik"
+                                        {{ old('agama', $penduduk->agama) == 'Katolik' ? 'selected' : '' }}>Katolik
+                                    </option>
+                                    <option value="Hindu"
+                                        {{ old('agama', $penduduk->agama) == 'Hindu' ? 'selected' : '' }}>Hindu</option>
+                                    <option value="Buddha"
+                                        {{ old('agama', $penduduk->agama) == 'Buddha' ? 'selected' : '' }}>Buddha</option>
                                 </select>
                             </div>
 
@@ -109,9 +120,22 @@
                             <div class="col-md-8 form-group">
                                 <select id="status_pernikahan" class="form-select" name="status_pernikahan" required>
                                     <option value="" disabled>Pilih</option>
-                                    <option value="belum_kawin" {{ old('status_pernikahan', $penduduk->status_pernikahan) == 'belum_kawin' ? 'selected' : '' }}>Belum Kawin</option>
-                                    <option value="kawin" {{ old('status_pernikahan', $penduduk->status_pernikahan) == 'kawin' ? 'selected' : '' }}>Kawin</option>
+                                    <option value="belum_kawin"
+                                        {{ old('status_pernikahan', $penduduk->status_pernikahan) == 'belum_kawin' ? 'selected' : '' }}>
+                                        Belum Kawin</option>
+                                    <option value="kawin"
+                                        {{ old('status_pernikahan', $penduduk->status_pernikahan) == 'kawin' ? 'selected' : '' }}>
+                                        Kawin</option>
                                 </select>
+                            </div>
+
+                            <!--Pendidikan-->
+                            <div class="col-md-4">
+                                <label for="first-name-horizontal">Pendidikan</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" id="pendidikan" class="form-control" placeholder="Pendidikan"
+                                    name="pendidikan" value="{{ old('pendudukan', $penduduk->pendidikan) }}">
                             </div>
 
                             <!--Pekerjaan-->
@@ -124,8 +148,9 @@
                             </div>
 
                             <div class="col-sm-12 d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary me-1 mb-1">Update</button>
-                                <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                <button type="submit" class="btn btn-primary me-1 mb-1">Save</button>
+                                <button type="button" class="btn btn-danger me-1 mb-1"
+                                    onclick="window.history.back()">Cancel</button>
                             </div>
                         </div>
                     </div>

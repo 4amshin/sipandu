@@ -20,12 +20,16 @@
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>No KK</th>
                             <th>NIK</th>
                             <th>Nama</th>
+                            <th>TTL</th>
                             <th>Jenis Kelamin</th>
-                            {{-- <th>Tempat Tanggal Lahir</th> --}}
                             <th>Alamat</th>
-                            <th>No KK</th>
+                            <th>Agama</th>
+                            <th>Status Pernikahan</th>
+                            <th>Pendidikan</th>
+                            <th>Pekerjaan</th>
                         </tr>
                     </thead>
 
@@ -34,8 +38,13 @@
                         @forelse ($daftarPenduduk as $penduduk)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
+                                <td>{{ $penduduk->no_kk }}</td>
                                 <td>{{ $penduduk->nik }}</td>
                                 <td>{{ $penduduk->nama }}</td>
+                                <td>
+                                    {{ $penduduk->tempat_lahir }},
+                                    {{ \Carbon\Carbon::parse($penduduk->tanggal_lahir)->translatedFormat('d F Y') }}
+                                </td>
                                 <td>
                                     @if ($penduduk->jenis_kelamin == 'laki-laki')
                                         <span class="badge bg-light-info">Laki-Laki</span>
@@ -43,16 +52,15 @@
                                         <span class="badge bg-light-danger">Perempuan</span>
                                     @endif
                                 </td>
-                                {{-- <td>
-                                    {{ $penduduk->tempat_lahir }},
-                                    {{ \Carbon\Carbon::parse($penduduk->tanggal_lahir)->translatedFormat('d F Y') }}
-                                </td> --}}
                                 <td>
                                     Dusun {{ $penduduk->dusun }}, RT{{ $penduduk->rt }}/RW{{ $penduduk->rw }}
                                 </td>
-                                <td>
-                                    {{ $penduduk->no_kk }}
-                                </td>
+                                <td>{{ $penduduk->agama }}</td>
+                                <td>{{ ucwords(str_replace('_', ' ', $penduduk->status_pernikahan)) }}</td>
+                                <td>{{ $penduduk->pendidikan }}</td>
+                                <td>{{ $penduduk->pekerjaan }}</td>
+
+                                <!--Tombol Aksi--->
                                 @can('super-user')
                                     <td>
                                         <div class="dropdown">
@@ -90,4 +98,3 @@
 
     </section>
 @endsection
-

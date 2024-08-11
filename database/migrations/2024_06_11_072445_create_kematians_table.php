@@ -20,6 +20,7 @@ return new class extends Migration
             $table->time('jam_kematian');
             $table->string('tempat_kematian');
             $table->string('sebab')->nullable();
+            $table->string('keluarga')->nullable();
             $table->string('nama_ayah')->nullable();
             $table->string('nama_ibu')->nullable();
             $table->timestamps();

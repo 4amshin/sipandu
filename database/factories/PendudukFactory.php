@@ -17,18 +17,19 @@ class PendudukFactory extends Factory
      */
     public function definition(): array
     {
-        $faker = FakerFactory::create('id_ID'); // Menggunakan locale Indonesia
+        $faker = FakerFactory::create('id_ID');
 
         return [
-            'nik' => $faker->numerify('################'), // 16 digit angka
-            'no_kk' => $faker->numerify('################'), // 16 digit angka
+            'nik' => $faker->numerify('################'),
+            'no_kk' => $faker->numerify('################'),
             'nama' => $faker->name,
             'jenis_kelamin' => $faker->randomElement(['laki-laki', 'perempuan']),
-            'tempat_lahir' => $faker->city, // Memasukkan data tempat lahir dengan kota acak
+            'tempat_lahir' => $faker->city,
             'tanggal_lahir' => $faker->date(),
-            'agama' => $faker->randomElement(['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha']), // Memilih agama secara acak
+            'agama' => $faker->randomElement(['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha']),
             'status_pernikahan' => $faker->randomElement(['kawin', 'belum_kawin']),
-            'pekerjaan' => $faker->jobTitle, // Memasukkan data pekerjaan dengan judul pekerjaan acak
+            'pendidikan' => $faker->company,
+            'pekerjaan' => $faker->jobTitle,
             'rt' => $faker->numberBetween(1, 20),
             'rw' => $faker->numberBetween(1, 20),
             'dusun' => $faker->streetName,
