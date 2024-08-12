@@ -15,12 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
-            // $table->string('tempat_lahir');
+            $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
-            // $table->time('jam_lahir');
-            $table->string('keluarga');
-            // $table->string('nama_ayah');
-            // $table->string('nama_ibu');
+            $table->time('jam_lahir');
+            $table->string('nama_ayah')->nullable();
+            $table->string('nama_ibu')->nullable();
             $table->timestamps();
         });
     }

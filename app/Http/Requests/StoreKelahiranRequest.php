@@ -24,12 +24,11 @@ class StoreKelahiranRequest extends FormRequest
         return [
             'nama' => 'required|string|max:255',
             'jenis_kelamin' => 'required|in:laki-laki,perempuan',
-            // 'tempat_lahir' => 'required|string|max:255',
+            'tempat_lahir' => 'required|string|max:255',
             'tanggal_lahir' => 'required|date',
-            // 'jam_lahir' => 'required|date_format:H:i:s',
-            'keluarga' => 'required|string',
-            // 'nama_ayah' => 'required|string|max:255',
-            // 'nama_ibu' => 'required|string|max:255',
+            'jam_lahir' => 'required|date_format:H:i',
+            'nama_ayah' => 'required|string|max:255',
+            'nama_ibu' => 'required|string|max:255',
         ];
     }
 }

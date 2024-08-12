@@ -4,5 +4,5 @@
 =============
 REVISI UI
 - Sesuaikan UI dengan desain Proposal
-    - Pendudk, Kelahiran (selesai)
-    - sisanya masih terdapat design yang tidak sesuai dengan (tunggu klien)
+    - Pendudk (selesai)
+    - Kerja sisanya
