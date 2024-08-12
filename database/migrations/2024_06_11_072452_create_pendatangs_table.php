@@ -18,7 +18,6 @@ return new class extends Migration
             $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
             $table->date('tanggal_datang');
             $table->string('nama_pelapor');
-            $table->text('alamat_pendatang');
             $table->timestamps();
         });
     }

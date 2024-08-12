@@ -15,6 +15,5 @@ class Pendatang extends Model
         'jenis_kelamin',
         'tanggal_datang',
         'nama_pelapor',
-        'alamat_pendatang',
     ];
 }

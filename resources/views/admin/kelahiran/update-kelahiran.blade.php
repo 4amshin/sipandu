@@ -1,8 +1,8 @@
 @extends('layout.app')
 
-@section('title', 'Update Kelahiran')
+@section('title', 'Edit Kelahiran')
 
-@section('header', 'Update Data Kelahiran')
+@section('header', 'Edit Data Kelahiran')
 
 @section('content')
     <div class="card">

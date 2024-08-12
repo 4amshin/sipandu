@@ -19,6 +19,7 @@
                     <!--Head-->
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Nama</th>
                             <th>NIK</th>
                             <th>Jenis Kelamin</th>
@@ -31,6 +32,7 @@
                     <tbody>
                         @forelse ($daftarPendatang as $pendatang)
                             <tr>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $pendatang->nama }}</td>
                                 <td>{{ $pendatang->nik }}</td>
                                 <td>

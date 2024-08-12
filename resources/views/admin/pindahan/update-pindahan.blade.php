@@ -1,14 +1,12 @@
 @extends('layout.app-no-sidebar')
 
-@section('title', 'Update Pindahan')
+@section('title', 'Edit Pindahan')
+
+@section('header', 'Edit Data Pindahan')
+
 
 @section('content')
     <div class="card">
-        <!--Header-->
-        <div class="card-header">
-            <h4 class="card-title">Update Data Pindahan</h4>
-        </div>
-
         <!--Body-->
         <div class="card-content">
             <div class="card-body">
@@ -73,9 +71,10 @@
                             </div>
                         </div>
 
-                        <div class="col-12 d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
-                            <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                        <div class="col-sm-12 d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary me-1 mb-1">Simpan</button>
+                            <button type="button" class="btn btn-danger me-1 mb-1"
+                                onclick="window.history.back()">Batal</button>
                         </div>
                     </div>
                 </form>

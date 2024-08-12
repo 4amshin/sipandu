@@ -1,8 +1,8 @@
 @extends('layout.app')
 
-@section('title', 'Update Kematian')
+@section('title', 'Edit Kematian')
 
-@section('header', 'Update Data Kematian')
+@section('header', 'Edit Data Kematian')
 
 @section('content')
     <div class="card">
@@ -99,7 +99,7 @@
                             </div>
 
                             <div class="col-sm-12 d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary me-1 mb-1">Update</button>
+                                <button type="submit" class="btn btn-primary me-1 mb-1">Simpan</button>
                                 <button type="button" class="btn btn-danger me-1 mb-1"
                                     onclick="window.history.back()">Batal</button>
                             </div>

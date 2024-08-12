@@ -25,7 +25,6 @@ class PendatangFactory extends Factory
             'jenis_kelamin' => $this->faker->randomElement(['laki-laki', 'perempuan']),
             'tanggal_datang' => $this->faker->date(),
             'nama_pelapor' => $this->faker->name,
-            'alamat_pendatang' => $this->faker->address,
         ];
     }
 }

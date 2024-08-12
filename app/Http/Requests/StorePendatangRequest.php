@@ -27,7 +27,6 @@ class StorePendatangRequest extends FormRequest
             'nik' => 'required|string|max:16|unique:pendatangs,nik',
             'tanggal_datang' => 'required|date',
             'nama_pelapor' => 'required|string|max:255',
-            'alamat_pendatang' => 'required|string',
         ];
     }
 }
