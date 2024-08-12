@@ -19,11 +19,12 @@
                     <!--Head-->
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Nama</th>
                             <th>NIK</th>
                             <th>Jenis Kelamin</th>
                             <th>Tempat Tanggal Kematian</th>
-                            <th>Pukul</th>
+                            <th>Jam Kematian</th>
                             <th>Ayah</th>
                             <th>Ibu</th>
                         </tr>
@@ -33,6 +34,7 @@
                     <tbody>
                         @forelse ($daftarKematian as $kematian)
                             <tr>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $kematian->nama }}</td>
                                 <td>{{ $kematian->nik }}</td>
                                 <td>

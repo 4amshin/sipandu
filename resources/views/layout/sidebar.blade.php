@@ -59,12 +59,12 @@
 
                 @can('super-user')
                     <!--Daftar Pengguna-->
-                    <li class="sidebar-item {{ Request::is('pengguna*') ? 'active' : '' }}">
+                    {{-- <li class="sidebar-item {{ Request::is('pengguna*') ? 'active' : '' }}">
                         <a href="{{ route('pengguna.index') }}" class='sidebar-link'>
                             <i class="bi bi-person-fill-gear"></i>
                             <span>Daftar Pengguna</span>
                         </a>
-                    </li>
+                    </li> --}}
 
                     <!--List Data-->
                     <li
@@ -112,15 +112,15 @@
                     </a>
                 </li>
 
-                <li class="sidebar-title">Lainnya</li>
+                {{-- <li class="sidebar-title">Lainnya</li> --}}
 
                 <!--Profile-->
-                <li class="sidebar-item {{ Request::is('profile*') ? 'active' : '' }}">
+                {{-- <li class="sidebar-item {{ Request::is('profile*') ? 'active' : '' }}">
                     <a href="{{ route('profile') }}" class='sidebar-link'>
                         <i class="bi bi-person-circle"></i>
                         <span>Profile</span>
                     </a>
-                </li>
+                </li> --}}
 
                 <!--LogOut-->
                 <li class="sidebar-item m-3">
