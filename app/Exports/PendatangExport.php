@@ -36,7 +36,6 @@ class PendatangExport implements FromCollection, WithHeadings, WithStyles, WithC
                 'Jenis Kelamin' => $pendatang->jenis_kelamin,
                 'Tanggal Datang' => \Carbon\Carbon::parse($pendatang->tanggal_datang)->translatedFormat('d F Y'),
                 'Nama Pelapor' => $pendatang->nama_pelapor,
-                'Alamat Pendatang' => $pendatang->alamat_pendatang,
 
             ];
         });
@@ -51,13 +50,12 @@ class PendatangExport implements FromCollection, WithHeadings, WithStyles, WithC
             'Jenis Kelamin',
             'Tanggal Datang',
             'Nama Pelapor',
-            'Alamat Pendatang',
         ];
     }
     public function styles(Worksheet $sheet)
     {
         //inisialisasi daftar nama column yang ingin diberi style yang sama
-        $daftarColumn = ['A', 'B', 'D', 'E', 'F', 'G'];
+        $daftarColumn = ['A', 'B', 'D', 'E', 'F'];
 
         //inisialisasi styel rataTengah
         $rateTengah = [
@@ -108,7 +106,6 @@ class PendatangExport implements FromCollection, WithHeadings, WithStyles, WithC
             'D' => 15,
             'E' => 25,
             'F' => 20,
-            'G' => 30,
         ];
     }
 

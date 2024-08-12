@@ -39,6 +39,7 @@ class PendudukExport implements FromCollection, WithHeadings, WithStyles, WithCo
                     \Carbon\Carbon::parse($penduduk->tanggal_lahir)->translatedFormat('d F Y'),
                 'Agama' => $penduduk->agama,
                 'Status Pernikahan' => $penduduk->status_pernikahan,
+                'Pendidikan' => $penduduk->pendidikan,
                 'Pekerjaan' => $penduduk->pekerjaan,
                 'Alamat' => 'Dusun ' . $penduduk->dusun . ', ' . 'RT' . $penduduk->rt . '/RW' . $penduduk->rw,
             ];
@@ -56,6 +57,7 @@ class PendudukExport implements FromCollection, WithHeadings, WithStyles, WithCo
             'Tempat Tanggal Lahir',
             'Agama',
             'Status Pernikahan',
+            'Pendidikan',
             'Pekerjaan',
             'Alamat',
         ];
@@ -63,7 +65,7 @@ class PendudukExport implements FromCollection, WithHeadings, WithStyles, WithCo
     public function styles(Worksheet $sheet)
     {
         //inisialisasi daftar nama column yang ingin diberi style yang sama
-        $daftarColumn = ['A', 'B', 'C', 'E', 'F', 'G', 'H', 'I', 'J'];
+        $daftarColumn = ['A', 'B', 'C', 'E', 'F', 'G', 'H', 'I', 'J', 'K'];
 
         //inisialisasi styel rataTengah
         $rateTengah = [
@@ -117,7 +119,8 @@ class PendudukExport implements FromCollection, WithHeadings, WithStyles, WithCo
             'G' => 15,
             'H' => 17,
             'I' => 18,
-            'J' => 27,
+            'J' => 18,
+            'K' => 27,
         ];
     }
 

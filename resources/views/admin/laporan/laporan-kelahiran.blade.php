@@ -4,10 +4,11 @@
         <!--Head-->
         <thead>
             <tr>
+                <th>No</th>
                 <th>Nama</th>
-                <th>Jenis Kelamin</th>
-                <th>Tempat Tanggal Lahir</th>
-                <th>Pukul</th>
+                <th align="center">Jenis Kelamin</th>
+                <th>TTL</th>
+                <th>Jam Lahir</th>
                 <th>Ayah</th>
                 <th>Ibu</th>
             </tr>
@@ -17,6 +18,7 @@
         <tbody>
             @forelse ($daftarKelahiran as $kelahiran)
                 <tr>
+                    <td>{{ $loop->iteration }}</td>
                     <td>{{ $kelahiran->nama }}</td>
                     <td>
                         @if ($kelahiran->jenis_kelamin == 'laki-laki')

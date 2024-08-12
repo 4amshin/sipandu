@@ -45,33 +45,6 @@
                     <td>{{ $penduduk->pendidikan }}</td>
                     <td>{{ $penduduk->pekerjaan }}</td>
 
-                    <!--Tombol Aksi--->
-                    @can('super-user')
-                        <td>
-                            <div class="dropdown">
-                                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-bs-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                    Aksi
-                                </button>
-                                <div class="dropdown-menu">
-                                    <!--Tombol Update-->
-                                    <a href="{{ route('penduduk.edit', $penduduk->id) }}" class="dropdown-item">
-                                        <i class="bi bi-pen"></i> Edit
-                                    </a>
-
-                                    <!--Tombol Hapus-->
-                                    <form action="{{ route('penduduk.destroy', $penduduk->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="dropdown-item">
-                                            <i class="bi bi-trash3"></i> Hapus
-                                        </button>
-                                    </form>
-
-                                </div>
-                            </div>
-                        </td>
-                    @endcan
                 </tr>
             @empty
                 Data Kosong
