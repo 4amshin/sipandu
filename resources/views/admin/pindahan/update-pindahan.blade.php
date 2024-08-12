@@ -1,4 +1,4 @@
-@extends('layout.app-no-sidebar')
+@extends('layout.app')
 
 @section('title', 'Edit Pindahan')
 
@@ -11,75 +11,76 @@
         <div class="card-content">
             <div class="card-body">
                 <!--Form-->
-                <form class="form" action="{{ route('pindahan.update', $pindahan->id) }}" method="POST">
+                <form class="form form-horizontal" action="{{ route('pindahan.update', $pindahan->id) }}" method="POST">
                     @csrf
                     @method('PUT')
 
-                    <div class="row">
-                        <!--Nama-->
-                        <div class="col-md-6 col-12">
-                            <div class="form-group">
+                    <div class="form-body">
+                        <div class="row">
+
+                            <!--Nama-->
+                            <div class="col-md-4">
                                 <label for="nama">Nama</label>
+                            </div>
+                            <div class="col-md-8 form-group">
                                 <input type="text" id="nama" class="form-control" placeholder="Nama Lengkap"
-                                    name="nama" value="{{ $pindahan->nama }}" required>
+                                    name="nama" value="{{ old('nama', $pindahan->nama) }}" required>
                             </div>
-                        </div>
 
-                        <!--Jenis Kelamin-->
-                        <div class="col-md-6 col-12">
-                            <div class="form-group">
+                            <!--Jenis Kelamin-->
+                            <div class="col-md-4">
                                 <label for="jenis_kelamin">Jenis Kelamin</label>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin1"
-                                        value="laki-laki" {{ $pindahan->jenis_kelamin == 'laki-laki' ? 'checked' : '' }}
-                                        required>
-                                    <label class="form-check-label" for="jenis_kelamin1">Laki-Laki</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin2"
-                                        value="perempuan" {{ $pindahan->jenis_kelamin == 'perempuan' ? 'checked' : '' }}
-                                        required>
-                                    <label class="form-check-label" for="jenis_kelamin2">Perempuan</label>
-                                </div>
                             </div>
-                        </div>
+                            <div class="col-md-8 form-group">
+                                <select class="form-select" id="jenis_kelamin" name="jenis_kelamin" required>
+                                    <option value="" disabled>Pilih</option>
+                                    <option value="laki-laki"
+                                        {{ old('jenis_kelamin', $pindahan->jenis_kelamin) == 'laki-laki' ? 'selected' : '' }}>
+                                        Laki-Laki</option>
+                                    <option value="perempuan"
+                                        {{ old('jenis_kelamin', $pindahan->jenis_kelamin) == 'perempuan' ? 'selected' : '' }}>
+                                        Perempuan</option>
+                                </select>
+                            </div>
 
-                        <!--NIK-->
-                        <div class="col-md-6 col-12">
-                            <div class="form-group">
+                            <!--NIK-->
+                            <div class="col-md-4">
                                 <label for="nik">NIK</label>
-                                <input type="text" id="nik" class="form-control" placeholder="16 Digiti NIK"
-                                    name="nik" value="{{ $pindahan->nik }}" maxlength="16" required>
                             </div>
-                        </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" id="nik" class="form-control" placeholder="16 Digit NIK"
+                                    name="nik" value="{{ old('nik', $pindahan->nik) }}" maxlength="16" required>
+                            </div>
 
-                        <!-- Tanggal Pindah -->
-                        <div class="col-md-6 col-12">
-                            <div class="form-group">
+                            <!--Tanggal Pindah-->
+                            <div class="col-md-4">
                                 <label for="tanggal_pindah">Tanggal Pindah</label>
+                            </div>
+                            <div class="col-md-8 form-group">
                                 <input type="date" id="tanggal_pindah" class="form-control" name="tanggal_pindah"
-                                    value="{{ $pindahan->tanggal_pindah }}" required>
+                                    value="{{ old('tanggal_pindah', $pindahan->tanggal_pindah) }}" required>
                             </div>
-                        </div>
 
-                        <!--Alasan-->
-                        <div class="col-md-12 col-12">
-                            <div class="form-group">
+                            <!--Alasan Pindah-->
+                            <div class="col-md-4">
                                 <label for="alasan_pindah">Alasan Pindah</label>
-                                <input type="text" id="alasan_pindah" class="form-control" placeholder="Alasan Pindah"
-                                    name="alasan_pindah" value="{{ $pindahan->alasan_pindah }}" required>
                             </div>
-                        </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" id="alasan_pindah" class="form-control" placeholder="Alasan Pindah"
+                                    name="alasan_pindah" value="{{ old('alasan_pindah', $pindahan->alasan_pindah) }}"
+                                    required>
+                            </div>
 
-                        <div class="col-sm-12 d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary me-1 mb-1">Simpan</button>
-                            <button type="button" class="btn btn-danger me-1 mb-1"
-                                onclick="window.history.back()">Batal</button>
+                            <!--Buttons-->
+                            <div class="col-sm-12 d-flex justify-content-end">
+                                <button type="submit" class="btn btn-primary me-1 mb-1">Simpan</button>
+                                <button type="button" class="btn btn-danger me-1 mb-1"
+                                    onclick="window.history.back()">Batal</button>
+                            </div>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-
     </div>
 @endsection
