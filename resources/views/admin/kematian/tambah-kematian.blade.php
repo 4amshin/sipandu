@@ -12,6 +12,15 @@
                     @csrf
                     <div class="form-body">
                         <div class="row">
+                            <!--NIK-->
+                            <div class="col-md-4">
+                                <label for="nik">NIK</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" id="nik" class="form-control" placeholder="16 Digit NIK"
+                                    name="nik" maxlength="16" required>
+                            </div>
+
                             <!--Nama-->
                             <div class="col-md-4">
                                 <label for="nama">Nama</label>
@@ -31,15 +40,6 @@
                                     <option value="laki-laki">Laki-Laki</option>
                                     <option value="perempuan">Perempuan</option>
                                 </select>
-                            </div>
-
-                            <!--NIK-->
-                            <div class="col-md-4">
-                                <label for="nik">NIK</label>
-                            </div>
-                            <div class="col-md-8 form-group">
-                                <input type="text" id="nik" class="form-control" placeholder="16 Digit NIK"
-                                    name="nik" maxlength="16" required>
                             </div>
 
                             <!--Tempat Tanggal Kematian-->

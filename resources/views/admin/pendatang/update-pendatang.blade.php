@@ -15,6 +15,14 @@
                     @method('PUT')
                     <div class="form-body">
                         <div class="row">
+                            <!--NIK-->
+                            <div class="col-md-4">
+                                <label for="nik">NIK</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" id="nik" class="form-control" placeholder="16 Digit NIK"
+                                    name="nik" maxlength="16" value="{{ $pendatang->nik }}" required>
+                            </div>
 
                             <!--Nama-->
                             <div class="col-md-4">
@@ -35,15 +43,6 @@
                                     <option value="laki-laki" {{ $pendatang->jenis_kelamin == 'laki-laki' ? 'selected' : '' }}>Laki-Laki</option>
                                     <option value="perempuan" {{ $pendatang->jenis_kelamin == 'perempuan' ? 'selected' : '' }}>Perempuan</option>
                                 </select>
-                            </div>
-
-                            <!--NIK-->
-                            <div class="col-md-4">
-                                <label for="nik">NIK</label>
-                            </div>
-                            <div class="col-md-8 form-group">
-                                <input type="text" id="nik" class="form-control" placeholder="16 Digit NIK"
-                                    name="nik" maxlength="16" value="{{ $pendatang->nik }}" required>
                             </div>
 
                             <!--Tanggal Datang-->
