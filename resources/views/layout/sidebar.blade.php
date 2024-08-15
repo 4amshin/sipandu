@@ -1,12 +1,15 @@
 <div id="sidebar">
     <div class="sidebar-wrapper active">
         <div class="sidebar-header position-relative">
-            <div class="d-flex justify-content-between align-items-center">
+
+            <!--Old Version-->
+            {{-- <div class="d-flex justify-content-between align-items-center">
                 <div class="logo">
                     <a href="{{ route('home') }}"><img src="{{ asset('assets/compiled/svg/logo.svg') }}"
                             alt="Logo"></a>
                 </div>
 
+                <!--Toggle Theme Dark-->
                 <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
                         role="img" class="iconify iconify--system-uicons" width="20" height="20"
@@ -42,7 +45,20 @@
                 <div class="sidebar-toggler  x">
                     <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
                 </div>
+            </div> --}}
+
+            <!--New Version-->
+            <div class="d-flex justify-content-center">
+                <div class="logo">
+                    <a href="{{ route('home') }}"><img src="{{ asset('assets/compiled/svg/logo.svg') }}"
+                            alt="Logo"></a>
+                </div>
+
+                <div class="sidebar-toggler  x">
+                    <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                </div>
             </div>
+
         </div>
 
         <div class="sidebar-menu">

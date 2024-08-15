@@ -1,8 +1,5 @@
+- Ketika Semuanya Di ACC (Hapus Daftar PENGGUNA, pROFIL, hal yang tidak dibutuhkan)
 - Login
     - show/hide eye
 
 =============
-REVISI UI
-- Sesuaikan UI dengan desain Proposal
-    - Pendudk (selesai)
-    - Kerja sisanya
