@@ -36,8 +36,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     /*-------------------------------PENDUDUK-------------------------------*/
     Route::resource('penduduk', PendudukController::class);
-    // Route untuk menampilkan modal dan mengirim data kematian
     Route::post('/penduduk/{penduduk}/tandai-meninggal', [PendudukController::class, 'tandaiMeninggal'])->name('penduduk.tandaiMeninggal');
+    Route::post('/penduduk/{penduduk}/tandai-pindah', [PendudukController::class, 'tandaiPindah'])->name('penduduk.tandaiPindah');
 
 
 

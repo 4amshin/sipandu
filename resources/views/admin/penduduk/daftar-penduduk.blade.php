@@ -82,11 +82,12 @@
                                                     <i class="bi bi-bookmark-x"></i> Tandai meninggal
                                                 </a>
 
-
-                                                <!--Tombol Tandai Pindah-->
-                                                <a href="" class="dropdown-item">
+                                                <!-- Tombol Tandai Pindah -->
+                                                <a href="#" class="dropdown-item" data-bs-toggle="modal"
+                                                    data-bs-target="#modalPindah" data-id="{{ $penduduk->id }}">
                                                     <i class="bi bi-door-open"></i> Tandai Pindah
                                                 </a>
+
 
                                                 <!--Tombol Hapus-->
                                                 <form action="{{ route('penduduk.destroy', $penduduk->id) }}" method="POST">
@@ -112,12 +113,15 @@
     </section>
     <!-- Modal Input Data Kematian -->
     @include('admin.penduduk.modal_input_kematian')
+
+    <!-- Modal Tandai Pindah -->
+    @include('admin.penduduk.modal_pindahan')
 @endsection
 
 @push('customJs')
     <script>
-        // Script untuk mengisi ID penduduk ke dalam form modal
         document.addEventListener('DOMContentLoaded', function() {
+            // Script Modal Tandai Meninggal
             var exampleModal = document.getElementById('inputKematianModal');
             exampleModal.addEventListener('show.bs.modal', function(event) {
                 var button = event.relatedTarget; // Tombol yang memicu modal
@@ -125,6 +129,19 @@
 
                 // Update action URL di form modal dengan ID penduduk
                 var form = exampleModal.querySelector('form');
+                var action = form.getAttribute('action').replace(':id', pendudukId);
+                form.setAttribute('action', action);
+            });
+
+
+            // Script Modal Tandai Pindah
+            var modalPindah = document.getElementById('modalPindah');
+            modalPindah.addEventListener('show.bs.modal', function(event) {
+                var button = event.relatedTarget; // Tombol yang memicu modal
+                var pendudukId = button.getAttribute('data-id'); // Ambil ID penduduk dari atribut data-id
+
+                // Update action URL di form modal dengan ID penduduk
+                var form = modalPindah.querySelector('form');
                 var action = form.getAttribute('action').replace(':id', pendudukId);
                 form.setAttribute('action', action);
             });

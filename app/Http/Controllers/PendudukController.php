@@ -6,6 +6,7 @@ use App\Models\Penduduk;
 use App\Http\Requests\StorePendudukRequest;
 use App\Http\Requests\UpdatePendudukRequest;
 use App\Models\Kematian;
+use App\Models\Pindahan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -78,8 +79,31 @@ class PendudukController extends Controller
         return redirect()->route('penduduk.index')->with('success', 'Penduduk berhasil ditandai sebagai meninggal');
     }
 
+    public function tandaiPindah(Request $request, Penduduk $penduduk)
+{
+    // Validasi input
+    $validated = $request->validate([
+        'tanggal_pindah' => 'required|date',
+        'alasan_pindah' => 'required|string',
+    ]);
 
-    public function tandaiPindah(Penduduk $penduduk) {}
+    // Simpan data pindahan ke tabel pindahans
+    Pindahan::create([
+        'nik' => $penduduk->nik,
+        'no_kk' => $penduduk->no_kk,
+        'nama' => $penduduk->nama,
+        'jenis_kelamin' => $penduduk->jenis_kelamin,
+        'tanggal_pindah' => $validated['tanggal_pindah'],
+        'alasan_pindah' => $validated['alasan_pindah'],
+    ]);
+
+    // Hapus data penduduk
+    $penduduk->delete();
+
+    // Redirect ke halaman daftar penduduk dengan pesan sukses
+    return redirect()->route('penduduk.index')->with('success', 'Penduduk berhasil ditandai sebagai pindah');
+}
+
 
     /**
      * Display the specified resource.
