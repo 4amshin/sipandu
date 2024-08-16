@@ -4,9 +4,5 @@
 =============
 Revisi:
 - Buat Tombol
-    - Tandai Meninggal
-        - Muncul Pop Up Modal input data (jam, tempat-tanggal, sebab)
-    - Tandai Pindah
-        - Muncul Pop Up Modal Input data (Tanggal, alasan)
     - Pendatang
         - Ketika Tambah data maka otomatis menambah juga ke tabel penduduk.

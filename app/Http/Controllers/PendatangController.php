@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pendatang;
 use App\Http\Requests\StorePendatangRequest;
 use App\Http\Requests\UpdatePendatangRequest;
+use App\Models\Penduduk;
 use Illuminate\Support\Facades\Gate;
 
 class PendatangController extends Controller
@@ -37,8 +38,30 @@ class PendatangController extends Controller
      */
     public function store(StorePendatangRequest $request)
     {
-        // Buat pendatang baru
-        Pendatang::create($request->validated());
+        // Validasi input dari StorePendatangRequest
+        $validated = $request->validated();
+
+        // Simpan data ke tabel pendatangs
+        $pendatang = Pendatang::create($validated);
+
+        // Simpan data yang sama ke tabel penduduks
+        Penduduk::create([
+            'nik' => $pendatang->nik,
+            'no_kk' => $pendatang->no_kk,
+            'nama' => $pendatang->nama,
+            'jenis_kelamin' => $pendatang->jenis_kelamin,
+            'tempat_lahir' => $pendatang->tempat_lahir,
+            'tanggal_lahir' => $pendatang->tanggal_lahir,
+            'agama' => $pendatang->agama,
+            'status_pernikahan' => $pendatang->status_pernikahan,
+            'pendidikan' => $pendatang->pendidikan,
+            'pekerjaan' => $pendatang->pekerjaan,
+            'rt' => $pendatang->rt,
+            'rw' => $pendatang->rw,
+            'dusun' => $pendatang->dusun,
+            'nama_ayah' => $pendatang->nama_ayah,
+            'nama_ibu' => $pendatang->nama_ibu,
+        ]);
 
         // Redirect dengan pesan sukses
         return redirect()->route('pendatang.index')->with('success', 'Data pendatang berhasil ditambahkan');

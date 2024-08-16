@@ -12,7 +12,7 @@
         <div class="card">
             <div class="card-body">
                 <!--Tombol Tambah Data Pindahan-->
-                <a href="{{ route('pindahan.create') }}" class="btn btn-primary mb-2">Tambah Data Pindahan</a>
+                {{-- <a href="{{ route('pindahan.create') }}" class="btn btn-primary mb-2">Tambah Data Pindahan</a> --}}
 
                 <!--Tabel-->
                 <table class="table table-striped" id="table1">
