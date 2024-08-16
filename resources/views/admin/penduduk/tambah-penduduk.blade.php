@@ -130,6 +130,19 @@
                                     name="pekerjaan">
                             </div>
 
+                            <!--Nama Ayah & Ibu-->
+                            <div class="col-md-4">
+                                <label for="nama_ayah">Nama Ayah & Ibu</label>
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <input type="text" id="nama_ayah" class="form-control" placeholder="Nama Ayah"
+                                    name="nama_ayah" required>
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <input type="text" id="nama_ibu" class="form-control" placeholder="Nama Ibu"
+                                    name="nama_ibu" required>
+                            </div>
+
                             <div class="col-sm-12 d-flex justify-content-end">
                                 <button type="submit" class="btn btn-primary me-1 mb-1">Simpan</button>
                                 <button type="button" class="btn btn-danger me-1 mb-1"

@@ -30,6 +30,7 @@
                             <th>Status Pernikahan</th>
                             <th>Pendidikan</th>
                             <th>Pekerjaan</th>
+                            <th>Ayah & Ibu</th>
                         </tr>
                     </thead>
 
@@ -59,6 +60,7 @@
                                 <td>{{ ucwords(str_replace('_', ' ', $penduduk->status_pernikahan)) }}</td>
                                 <td>{{ $penduduk->pendidikan }}</td>
                                 <td>{{ $penduduk->pekerjaan }}</td>
+                                <td>{{ $penduduk->nama_ayah . ' / ' . $penduduk->nama_ibu }}</td>
 
                                 <!--Tombol Aksi--->
                                 @can('super-user')
@@ -72,6 +74,18 @@
                                                 <!--Tombol Update-->
                                                 <a href="{{ route('penduduk.edit', $penduduk->id) }}" class="dropdown-item">
                                                     <i class="bi bi-pen"></i> Edit
+                                                </a>
+
+                                                <!-- Tombol Tandai Meninggal -->
+                                                <a href="#" class="dropdown-item" data-bs-toggle="modal"
+                                                    data-bs-target="#inputKematianModal" data-id="{{ $penduduk->id }}">
+                                                    <i class="bi bi-bookmark-x"></i> Tandai meninggal
+                                                </a>
+
+
+                                                <!--Tombol Tandai Pindah-->
+                                                <a href="" class="dropdown-item">
+                                                    <i class="bi bi-door-open"></i> Tandai Pindah
                                                 </a>
 
                                                 <!--Tombol Hapus-->
@@ -95,6 +109,25 @@
                 </table>
             </div>
         </div>
-
     </section>
+    <!-- Modal Input Data Kematian -->
+    @include('admin.penduduk.modal_input_kematian')
 @endsection
+
+@push('customJs')
+    <script>
+        // Script untuk mengisi ID penduduk ke dalam form modal
+        document.addEventListener('DOMContentLoaded', function() {
+            var exampleModal = document.getElementById('inputKematianModal');
+            exampleModal.addEventListener('show.bs.modal', function(event) {
+                var button = event.relatedTarget; // Tombol yang memicu modal
+                var pendudukId = button.getAttribute('data-id'); // Ambil ID penduduk dari atribut data-id
+
+                // Update action URL di form modal dengan ID penduduk
+                var form = exampleModal.querySelector('form');
+                var action = form.getAttribute('action').replace(':id', pendudukId);
+                form.setAttribute('action', action);
+            });
+        });
+    </script>
+@endpush

@@ -11,6 +11,7 @@ class Kematian extends Model
 
     protected $fillable = [
         'nik',
+        'no_kk',
         'nama',
         'jenis_kelamin',
         'tanggal_kematian',
@@ -21,3 +22,4 @@ class Kematian extends Model
         'nama_ibu',
     ];
 }
+//no_kk,

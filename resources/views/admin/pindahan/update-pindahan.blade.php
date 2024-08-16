@@ -26,6 +26,15 @@
                                     name="nik" value="{{ old('nik', $pindahan->nik) }}" maxlength="16" required>
                             </div>
 
+                            <!--NO KK-->
+                            <div class="col-md-4">
+                                <label for="first-name-horizontal">NO KK</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" id="no_kk" class="form-control" placeholder="16 Digiti NO KK"
+                                    name="no_kk" value="{{ old('no_kk', $pindahan->no_kk) }}" maxlength="16" required>
+                            </div>
+
                             <!--Nama-->
                             <div class="col-md-4">
                                 <label for="nama">Nama</label>

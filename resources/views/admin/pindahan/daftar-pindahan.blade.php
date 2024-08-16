@@ -20,8 +20,9 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama</th>
+                            <th>No KK</th>
                             <th>NIK</th>
+                            <th>Nama</th>
                             <th>Jenis Kelamin</th>
                             <th>Tanggal Pindah</th>
                             <th>Alasan</th>
@@ -33,8 +34,9 @@
                         @forelse ($daftarPindahan as $pindahan)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $pindahan->nama }}</td>
+                                <td>{{ $pindahan->no_kk }}</td>
                                 <td>{{ $pindahan->nik }}</td>
+                                <td>{{ $pindahan->nama }}</td>
                                 <td>
                                     @if ($pindahan->jenis_kelamin == 'laki-laki')
                                         <span class="badge bg-light-info">Laki-Laki</span>

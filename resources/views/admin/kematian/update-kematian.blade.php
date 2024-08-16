@@ -22,6 +22,15 @@
                                     name="nik" maxlength="16" value="{{ $kematian->nik }}" required>
                             </div>
 
+                            <!--NO KK-->
+                            <div class="col-md-4">
+                                <label for="first-name-horizontal">NO KK</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" id="no_kk" class="form-control" placeholder="16 Digiti NO KK"
+                                    name="no_kk" maxlength="16" value="{{ $kematian->no_kk }}" required>
+                            </div>
+
                             <!--Nama-->
                             <div class="col-md-4">
                                 <label for="nama">Nama</label>
@@ -71,20 +80,15 @@
                                     value="{{ $kematian->jam_kematian }}" required>
                             </div>
 
-                            <!--Nama Ayah-->
+                            <!--Nama Ayah & Ibu-->
                             <div class="col-md-4">
-                                <label for="nama_ayah">Nama Ayah</label>
+                                <label for="nama_ayah">Nama Ayah & Ibu</label>
                             </div>
-                            <div class="col-md-8 form-group">
+                            <div class="col-md-4 form-group">
                                 <input type="text" id="nama_ayah" class="form-control" placeholder="Nama Ayah"
                                     name="nama_ayah" value="{{ $kematian->nama_ayah }}" required>
                             </div>
-
-                            <!--Nama Ibu-->
-                            <div class="col-md-4">
-                                <label for="nama_ibu">Nama Ibu</label>
-                            </div>
-                            <div class="col-md-8 form-group">
+                            <div class="col-md-4 form-group">
                                 <input type="text" id="nama_ibu" class="form-control" placeholder="Nama Ibu"
                                     name="nama_ibu" value="{{ $kematian->nama_ibu }}" required>
                             </div>

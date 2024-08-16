@@ -21,8 +21,20 @@ class PendatangFactory extends Factory
 
         return [
             'nik' => $this->faker->unique()->numerify('###############'),
-            'nama' => $this->faker->name,
-            'jenis_kelamin' => $this->faker->randomElement(['laki-laki', 'perempuan']),
+            'no_kk' => $faker->numerify('################'),
+            'nama' => $faker->name,
+            'jenis_kelamin' => $faker->randomElement(['laki-laki', 'perempuan']),
+            'tempat_lahir' => $faker->city,
+            'tanggal_lahir' => $faker->date(),
+            'agama' => $faker->randomElement(['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha']),
+            'status_pernikahan' => $faker->randomElement(['kawin', 'belum_kawin']),
+            'pendidikan' => $faker->company,
+            'pekerjaan' => $faker->jobTitle,
+            'rt' => $faker->numberBetween(1, 20),
+            'rw' => $faker->numberBetween(1, 20),
+            'dusun' => $faker->streetName,
+            'nama_ayah' => $this->faker->name('male'),
+            'nama_ibu' => $this->faker->name('female'),
             'tanggal_datang' => $this->faker->date(),
             'nama_pelapor' => $this->faker->name,
         ];

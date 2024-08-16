@@ -11,9 +11,11 @@ class Pindahan extends Model
 
     protected $fillable = [
         'nik',
+        'no_kk',
         'nama',
         'jenis_kelamin',
         'tanggal_pindah',
         'alasan_pindah',
     ];
 }
+

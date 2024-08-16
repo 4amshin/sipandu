@@ -147,6 +147,19 @@
                                     name="pekerjaan" value="{{ old('pekerjaan', $penduduk->pekerjaan) }}">
                             </div>
 
+                            <!--Nama Ayah & Ibu-->
+                            <div class="col-md-4">
+                                <label for="nama_ayah">Nama Ayah & Ibu</label>
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <input type="text" id="nama_ayah" class="form-control" placeholder="Nama Ayah"
+                                    name="nama_ayah" value="{{ old('nama_ayah', $penduduk->nama_ayah) }}">
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <input type="text" id="nama_ibu" class="form-control" placeholder="Nama Ibu"
+                                    name="nama_ibu" value="{{ old('nama_ibu', $penduduk->nama_ibu) }}">
+                            </div>
+
                             <div class="col-sm-12 d-flex justify-content-end">
                                 <button type="submit" class="btn btn-primary me-1 mb-1">Simpan</button>
                                 <button type="button" class="btn btn-danger me-1 mb-1"

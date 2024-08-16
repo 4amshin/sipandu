@@ -23,6 +23,7 @@ class UpdateKematianRequest extends FormRequest
     {
         return [
             'nik' => 'required|string|size:16',
+            'no_kk' => 'required|string|size:16',
             'nama' => 'required|string|max:255',
             'jenis_kelamin' => 'required|in:laki-laki,perempuan',
             'tanggal_kematian' => 'required|date',

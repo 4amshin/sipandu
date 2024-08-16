@@ -33,6 +33,8 @@ class PendudukFactory extends Factory
             'rt' => $faker->numberBetween(1, 20),
             'rw' => $faker->numberBetween(1, 20),
             'dusun' => $faker->streetName,
+            'nama_ayah' => $this->faker->name('male'),
+            'nama_ibu' => $this->faker->name('female'),
         ];
     }
 }

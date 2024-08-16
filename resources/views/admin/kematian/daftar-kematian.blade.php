@@ -12,7 +12,7 @@
         <div class="card">
             <div class="card-body">
                 <!--Tombol Tambah Data Kematian-->
-                <a href="{{ route('kematian.create') }}" class="btn btn-primary mb-2">Tambah Data Kematian</a>
+                {{-- <a href="{{ route('kematian.create') }}" class="btn btn-primary mb-2">Tambah Data Kematian</a> --}}
 
                 <!--Tabel-->
                 <table class="table table-striped" id="table1">
@@ -20,11 +20,13 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama</th>
+                            <th>No KK</th>
                             <th>NIK</th>
+                            <th>Nama</th>
                             <th>Jenis Kelamin</th>
                             <th>Tempat Tanggal Kematian</th>
                             <th>Jam Kematian</th>
+                            <th>Sebab Kematian</th>
                             <th>Ayah</th>
                             <th>Ibu</th>
                         </tr>
@@ -35,8 +37,9 @@
                         @forelse ($daftarKematian as $kematian)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $kematian->nama }}</td>
+                                <td>{{ $kematian->no_kk }}</td>
                                 <td>{{ $kematian->nik }}</td>
+                                <td>{{ $kematian->nama }}</td>
                                 <td>
                                     @if ($kematian->jenis_kelamin == 'laki-laki')
                                         <span class="badge bg-light-info">Laki-Laki</span>
@@ -51,6 +54,7 @@
                                 <td>
                                     {{ \Carbon\Carbon::createFromFormat('H:i:s', $kematian->jam_kematian)->format('h:i A') }}
                                 </td>
+                                <td>{{ $kematian->sebab }}</td>
                                 <td>
                                     {{ $kematian->nama_ayah }}
                                 </td>

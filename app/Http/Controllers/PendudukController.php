@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Penduduk;
 use App\Http\Requests\StorePendudukRequest;
 use App\Http\Requests\UpdatePendudukRequest;
+use App\Models\Kematian;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
 class PendudukController extends Controller
@@ -43,6 +45,41 @@ class PendudukController extends Controller
         // Redirect dengan pesan sukses
         return redirect()->route('penduduk.index')->with('success', 'Data Penduduk berhasil ditambahkan');
     }
+
+    public function tandaiMeninggal(Request $request, Penduduk $penduduk)
+    {
+        // Validasi input dari modal
+        $validated = $request->validate([
+            'tanggal_kematian' => 'required|date',
+            'jam_kematian' => 'required|date_format:H:i',
+            'tempat_kematian' => 'required|string|max:255',
+            'sebab' => 'nullable|string|max:255',
+        ]);
+
+        // Simpan data kematian ke tabel kematians
+        Kematian::create([
+            'nik' => $penduduk->nik,
+            'no_kk' => $penduduk->no_kk,
+            'nama' => $penduduk->nama,
+            'jenis_kelamin' => $penduduk->jenis_kelamin,
+            'tanggal_kematian' => $validated['tanggal_kematian'],
+            'jam_kematian' => $validated['jam_kematian'],
+            'tempat_kematian' => $validated['tempat_kematian'],
+            'sebab' => $validated['sebab'],
+            'keluarga' => $penduduk->keluarga,
+            'nama_ayah' => $penduduk->nama_ayah,
+            'nama_ibu' => $penduduk->nama_ibu,
+        ]);
+
+        // Hapus data penduduk
+        $penduduk->delete();
+
+        // Redirect ke halaman daftar penduduk dengan pesan sukses
+        return redirect()->route('penduduk.index')->with('success', 'Penduduk berhasil ditandai sebagai meninggal');
+    }
+
+
+    public function tandaiPindah(Penduduk $penduduk) {}
 
     /**
      * Display the specified resource.

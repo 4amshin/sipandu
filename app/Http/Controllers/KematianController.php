@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kematian;
 use App\Http\Requests\StoreKematianRequest;
 use App\Http\Requests\UpdateKematianRequest;
+use App\Models\Penduduk;
 
 class KematianController extends Controller
 {
@@ -31,7 +32,10 @@ class KematianController extends Controller
     public function store(StoreKematianRequest $request)
     {
         // Buat data kematian baru
-        Kematian::create($request->validated());
+        $kematian = Kematian::create($request->validated());
+
+        // Hapus dari tabel penduduk
+        Penduduk::where('nik', $kematian->nik)->delete();
 
         // Redirect dengan pesan sukses
         return redirect()->route('kematian.index')->with('success', 'Data kematian berhasil ditambahkan');

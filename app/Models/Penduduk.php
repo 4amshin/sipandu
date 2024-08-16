@@ -23,5 +23,8 @@ class Penduduk extends Model
         'rt',
         'rw',
         'dusun',
+        'nama_ayah',
+        'nama_ibu',
     ];
 }
+

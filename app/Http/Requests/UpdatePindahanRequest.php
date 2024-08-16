@@ -22,9 +22,10 @@ class UpdatePindahanRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'nik' => 'required|string|max:16',
+            'no_kk' => 'required|string|size:16',
             'nama' => 'required|string|max:255',
             'jenis_kelamin' => 'required|in:laki-laki,perempuan',
-            'nik' => 'required|string|max:16',
             'tanggal_pindah' => 'required|date',
             'alasan_pindah' => 'required|string',
         ];

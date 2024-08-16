@@ -11,9 +11,24 @@ class Pendatang extends Model
 
     protected $fillable = [
         'nik',
+        'no_kk',
         'nama',
         'jenis_kelamin',
+        'tempat_lahir',
+        'tanggal_lahir',
+        'agama',
+        'status_pernikahan',
+        'pendidikan',
+        'pekerjaan',
+        'rt',
+        'rw',
+        'dusun',
+        'nama_ayah',
+        'nama_ibu',
         'tanggal_datang',
         'nama_pelapor',
     ];
 }
+/*harus sama dengan model penduduk
+karena data nya akan otomatis ke data penduduk
+*/

@@ -35,6 +35,8 @@ class StorePendudukRequest extends FormRequest
             'rt' => 'required|integer|min:1',
             'rw' => 'required|integer|min:1',
             'dusun' => 'required|string|max:255',
+            'nama_ayah' => 'nullable|string|max:255',
+            'nama_ibu' => 'nullable|string|max:255',
         ];
     }
 }
