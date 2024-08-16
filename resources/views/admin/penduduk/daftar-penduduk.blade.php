@@ -79,7 +79,7 @@
                                                 <!-- Tombol Tandai Meninggal -->
                                                 <a href="#" class="dropdown-item" data-bs-toggle="modal"
                                                     data-bs-target="#inputKematianModal" data-id="{{ $penduduk->id }}">
-                                                    <i class="bi bi-bookmark-x"></i> Tandai meninggal
+                                                    <i class="bi bi-bookmark-x"></i> Tandai Meninggal
                                                 </a>
 
                                                 <!-- Tombol Tandai Pindah -->
