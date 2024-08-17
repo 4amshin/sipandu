@@ -17,13 +17,13 @@
                             'count' => $jumlahPenduduk,
                             'route' => route('penduduk.index'),
                         ],
-                        [
-                            'color' => 'blue',
-                            'icon' => 'bi-person-vcard',
-                            'title' => 'Kartu Keluarga',
-                            'count' => $jumlahKartuKeluarga,
-                            'route' => route('penduduk.index'), // Sesuaikan dengan route yang benar
-                        ],
+                        // [
+                        //     'color' => 'blue',
+                        //     'icon' => 'bi-person-vcard',
+                        //     'title' => 'Kartu Keluarga',
+                        //     'count' => $jumlahKartuKeluarga,
+                        //     'route' => route('penduduk.index'), // Sesuaikan dengan route yang benar
+                        // ],
                         [
                             'color' => 'green',
                             'icon' => 'bi-hearts',
