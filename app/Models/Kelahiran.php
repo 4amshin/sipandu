@@ -17,5 +17,6 @@ class Kelahiran extends Model
         'jam_lahir',
         'nama_ayah',
         'nama_ibu',
+        'dusun',
     ];
 }

@@ -32,7 +32,7 @@ class PendudukFactory extends Factory
             'pekerjaan' => $faker->jobTitle,
             'rt' => $faker->numberBetween(1, 20),
             'rw' => $faker->numberBetween(1, 20),
-            'dusun' => $faker->streetName,
+            'dusun' => $faker->randomElement(['Salu Patani', 'Batu Tongkon', 'Toro']),
             'nama_ayah' => $this->faker->name('male'),
             'nama_ibu' => $this->faker->name('female'),
         ];

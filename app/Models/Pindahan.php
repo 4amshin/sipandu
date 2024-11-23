@@ -13,6 +13,7 @@ class Pindahan extends Model
         'nik',
         'no_kk',
         'nama',
+        'dusun',
         'jenis_kelamin',
         'tanggal_pindah',
         'alasan_pindah',

@@ -29,6 +29,7 @@ class KematianFactory extends Factory
             'sebab' => $this->faker->sentence,
             'nama_ayah' => $this->faker->name('male'),
             'nama_ibu' => $this->faker->name('female'),
+            'dusun' => $faker->randomElement(['Salu Patani', 'Batu Tongkon', 'Toro']),
         ];
     }
 }

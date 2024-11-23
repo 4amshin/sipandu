@@ -20,6 +20,7 @@ class Kematian extends Model
         'sebab',
         'nama_ayah',
         'nama_ibu',
+        'dusun',
     ];
 }
 //no_kk,

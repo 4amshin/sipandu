@@ -27,6 +27,7 @@ class KelahiranFactory extends Factory
             'jam_lahir' => $faker->time,
             'nama_ayah' => $faker->name('male'),
             'nama_ibu' => $faker->name('female'),
+            'dusun' => $faker->randomElement(['Salu Patani', 'Batu Tongkon', 'Toro']),
         ];
     }
 }

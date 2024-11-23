@@ -20,6 +20,7 @@ return new class extends Migration
             $table->time('jam_lahir');
             $table->string('nama_ayah')->nullable();
             $table->string('nama_ibu')->nullable();
+            $table->string('dusun');
             $table->timestamps();
         });
     }

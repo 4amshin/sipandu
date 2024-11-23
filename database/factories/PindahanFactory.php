@@ -22,6 +22,7 @@ class PindahanFactory extends Factory
             'nik' => $this->faker->unique()->numerify('###############'),
             'no_kk' => $this->faker->unique()->numerify('################'),
             'nama' => $this->faker->name,
+            'dusun' => $faker->randomElement(['Salu Patani', 'Batu Tongkon', 'Toro']),
             'jenis_kelamin' => $this->faker->randomElement(['laki-laki', 'perempuan']),
             'tanggal_pindah' => $this->faker->date(),
             'alasan_pindah' => $this->faker->sentence,

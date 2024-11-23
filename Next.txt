@@ -1,8 +1,14 @@
-- Ketika Semuanya Di ACC (Hapus Daftar PENGGUNA, pROFIL, hal yang tidak dibutuhkan)
-- Login
-    - show/hide eye
-=============
-Revisi:
-- Buat Tombol
-    - Pendatang
-        - Ketika Tambah data maka otomatis menambah juga ke tabel penduduk.
+Revisi Laporan
+==============
+- Thead telah di implementasikan berdasarkan ref-laporan-sipandu
+Next:
+ - Tampilkan Data dibody (melaui LaporanController:index)
+
+LAST TIME:
+=========
+- Kita telah sukes menampilkan data untuk column PENDUDUK AWAL BULAN Illuminate
+    Ternyata maslahnya bukan terdapat pada kode, tetapi kesalah pahaman saya terkait querynya.
+    pada kode saya perintahkan untuk query data awal bulan dan yang sebelumnya, sedangkan pada tabel database
+    smeua data adalah pada tanggal 14 sehingga tidak muncul berdasrakan query yang saya ingingkan.
+
+NEXT = Lanjut ke column  LAHIR BULAN INI

@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('keluarga')->nullable();
             $table->string('nama_ayah')->nullable();
             $table->string('nama_ibu')->nullable();
+            $table->string('dusun');
             $table->timestamps();
         });
     }
