@@ -56,8 +56,8 @@
                             <th colspan="3" class="text-center">PENDUDUK AWAL BULAN INI</th>
                             <th colspan="3" class="text-center">LAHIR BULAN INI</th>
                             <th colspan="3" class="text-center">MENINGGAL BULAN INI</th>
-                            {{-- <th colspan="3" class="text-center">PENDATANG BULAN INI</th>
-                            <th colspan="3" class="text-center">PINDAHAN BULAN INI</th>
+                            <th colspan="3" class="text-center">PENDATANG BULAN INI</th>
+                            {{-- <th colspan="3" class="text-center">PINDAHAN BULAN INI</th>
                             <th colspan="3" class="text-center">PENDUDUK AKHIR BULAN INI</th>
                             <th rowspan="2" class="text-center align-middle">KET</th> --}}
                         </tr>
@@ -83,9 +83,9 @@
                             <th class="text-center">JMLH</th>
 
                             <!-- PENDATANG BULAN INI -->
-                            {{-- <th class="text-center">L</th>
+                            <th class="text-center">L</th>
                             <th class="text-center">P</th>
-                            <th class="text-center">JMLH</th> --}}
+                            <th class="text-center">JMLH</th>
 
                             <!-- PINDAHAN BULAN INI -->
                             {{-- <th class="text-center">L</th>
@@ -137,11 +137,11 @@
                                 <td>{{ $laporan['meninggal']->where('dusun', $dusun)->sum('jumlah') }}</td>
 
                                 <!-- PENDATANG BULAN INI -->
-                                {{-- <td>{{ $laporan['pendatang']->where('dusun', $dusun)->where('jenis_kelamin', 'laki-laki')->sum('jumlah') }}
+                                <td>{{ $laporan['pendatang']->where('dusun', $dusun)->where('jenis_kelamin', 'laki-laki')->sum('jumlah') }}
                                 </td>
                                 <td>{{ $laporan['pendatang']->where('dusun', $dusun)->where('jenis_kelamin', 'perempuan')->sum('jumlah') }}
                                 </td>
-                                <td>{{ $laporan['pendatang']->where('dusun', $dusun)->sum('jumlah') }}</td> --}}
+                                <td>{{ $laporan['pendatang']->where('dusun', $dusun)->sum('jumlah') }}</td>
 
                                 <!-- PINDAHAN BULAN INI -->
                                 {{-- <td>{{ $laporan['pindahan']->where('dusun', $dusun)->where('jenis_kelamin', 'laki-laki')->sum('jumlah') }}

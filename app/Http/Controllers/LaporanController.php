@@ -86,6 +86,22 @@ class LaporanController extends Controller
             ->groupBy('dusun', 'jenis_kelamin')
             ->get();
 
+        $pendatang = Pendatang::select('jenis_kelamin', 'dusun', DB::raw('COUNT(*) as jumlah'))
+            ->where(function ($query) use ($bulan, $tahun) {
+                $currentDate = Carbon::now();
+                $inputDate = Carbon::createFromDate($tahun, $bulan);
+
+                // Tentukan tanggal akhir untuk filter
+                $tanggalAkhir = $inputDate->isSameMonth($currentDate)
+                    ? $currentDate->endOfDay() // Tanggal hari ini jika bulan & tahun sama dengan sekarang
+                    : $inputDate->endOfMonth(); // Tanggal akhir bulan jika bulan & tahun adalah waktu lalu
+
+                // Tambahkan kondisi filter berdasarkan tanggal
+                $query->whereDate('tanggal_datang', '<=', $tanggalAkhir);
+            })
+            ->groupBy('dusun', 'jenis_kelamin')
+            ->get();
+
         // $pendatang = Pendatang::select('jenis_kelamin', 'dusun', DB::raw('COUNT(*) as jumlah'))
         //     ->whereMonth('tanggal_datang', $bulan)
         //     ->whereYear('tanggal_datang', $tahun)
@@ -104,7 +120,7 @@ class LaporanController extends Controller
         //     ->get();
 
         $dusunList = ['Salu Patani', 'Batu Tongkon', 'Toro'];
-        $laporan = compact('pendudukAwal', 'lahir', 'meninggal');
+        $laporan = compact('pendudukAwal', 'lahir', 'meninggal', 'pendatang');
         // $laporan = compact('pendudukAwal', 'lahir', 'meninggal', 'pendatang', 'pindahan', 'pendudukAkhir');
         // dd($laporan);
 
