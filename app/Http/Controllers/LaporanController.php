@@ -118,11 +118,10 @@ class LaporanController extends Controller
             ->groupBy('dusun', 'jenis_kelamin')
             ->get();
 
-        // $pindahan = Pindahan::select('jenis_kelamin', 'dusun', DB::raw('COUNT(*) as jumlah'))
-        //     ->whereMonth('tanggal_pindah', $bulan)
-        //     ->whereYear('tanggal_pindah', $tahun)
-        //     ->groupBy('dusun', 'jenis_kelamin')
-        //     ->get();
+            $pendudukAkhir = Penduduk::select('dusun', 'jenis_kelamin', DB::raw('COUNT(*) as jumlah'))
+            ->whereDate('created_at', '<=', Carbon::createFromDate($tahun, $bulan)->endOfMonth())
+            ->groupBy('dusun', 'jenis_kelamin')
+            ->get();
 
         // $pendudukAkhir = Penduduk::select('dusun', 'jenis_kelamin', DB::raw('COUNT(*) as jumlah'))
         //     ->whereDate('created_at', '<=', "$tahun-$bulan-" . date('t', strtotime("$tahun-$bulan-01")))
@@ -130,7 +129,7 @@ class LaporanController extends Controller
         //     ->get();
 
         $dusunList = ['Salu Patani', 'Batu Tongkon', 'Toro'];
-        $laporan = compact('pendudukAwal', 'lahir', 'meninggal', 'pendatang', 'pindahan');
+        $laporan = compact('pendudukAwal', 'lahir', 'meninggal', 'pendatang', 'pindahan', 'pendudukAkhir');
         // $laporan = compact('pendudukAwal', 'lahir', 'meninggal', 'pendatang', 'pindahan', 'pendudukAkhir');
         // dd($laporan);
 
