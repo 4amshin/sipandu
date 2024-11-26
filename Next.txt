@@ -6,9 +6,12 @@ Next:
 
 LAST TIME:
 =========
-- Kita telah sukes menampilkan data untuk column PENDUDUK AWAL BULAN Illuminate
-    Ternyata maslahnya bukan terdapat pada kode, tetapi kesalah pahaman saya terkait querynya.
-    pada kode saya perintahkan untuk query data awal bulan dan yang sebelumnya, sedangkan pada tabel database
-    smeua data adalah pada tanggal 14 sehingga tidak muncul berdasrakan query yang saya ingingkan.
+- Telah iMPLEMENTASI SEMUANYA SISA jumlah kk dan jumlah rumah
 
-NEXT = Lanjut ke column  LAHIR BULAN INI
+NEXT =  - Lanjut ke column  JUMLAH KK dan JUMLAH RUMAH
+        - Minta ke GPT untuk mengefisienkan kode query pada laporan, terlalu panjang (dan berulang ulang)
+
+
+Note:
+- Modfikasi tabel pendduk, tambahakn role(kepala_keluarga, anggota_keluarga)
+- kemudian gunakan query untuk JUMLAH KK(Kepala Keluarga) berdasarkan kelamin

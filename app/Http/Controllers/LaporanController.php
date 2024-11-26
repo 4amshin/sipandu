@@ -49,6 +49,11 @@ class LaporanController extends Controller
             return view('admin.laporan.laporan-kependudukan', compact('dusunList'));
         }
 
+        $jumlahKK = Penduduk::select('dusun', 'jenis_kelamin', DB::raw('COUNT(*) as jumlah'))
+            ->where('role', 'kepala_keluarga')
+            ->groupBy('dusun', 'jenis_kelamin')
+            ->get();
+
         $pendudukAwal = Penduduk::select('dusun', 'jenis_kelamin', DB::raw('COUNT(*) as jumlah'))
             ->whereDate('created_at', '<=', "$tahun-$bulan-14")
             ->groupBy('dusun', 'jenis_kelamin')
@@ -123,14 +128,9 @@ class LaporanController extends Controller
             ->groupBy('dusun', 'jenis_kelamin')
             ->get();
 
-        // $pendudukAkhir = Penduduk::select('dusun', 'jenis_kelamin', DB::raw('COUNT(*) as jumlah'))
-        //     ->whereDate('created_at', '<=', "$tahun-$bulan-" . date('t', strtotime("$tahun-$bulan-01")))
-        //     ->groupBy('dusun', 'jenis_kelamin')
-        //     ->get();
-
         $dusunList = ['Salu Patani', 'Batu Tongkon', 'Toro'];
-        $laporan = compact('pendudukAwal', 'lahir', 'meninggal', 'pendatang', 'pindahan', 'pendudukAkhir');
-        // $laporan = compact('pendudukAwal', 'lahir', 'meninggal', 'pendatang', 'pindahan', 'pendudukAkhir');
+        $laporan = compact('jumlahKK','pendudukAwal', 'lahir', 'meninggal', 'pendatang', 'pindahan', 'pendudukAkhir');
+
         // dd($laporan);
 
         return view('admin.laporan.laporan-kependudukan', compact('laporan', 'dusunList'));

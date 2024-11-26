@@ -13,6 +13,7 @@ class Penduduk extends Model
         'nik',
         'no_kk',
         'nama',
+        'role',
         'jenis_kelamin',
         'tempat_lahir',
         'tanggal_lahir',
