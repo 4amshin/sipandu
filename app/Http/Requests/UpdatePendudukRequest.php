@@ -25,6 +25,7 @@ class UpdatePendudukRequest extends FormRequest
             'nik' => 'required|string|max:16',
             'no_kk' => 'required|string|max:16',
             'nama' => 'required|string|max:255',
+            'role' => 'required|string|in:kepala_keluarga,anggota_keluarga',
             'jenis_kelamin' => 'required|in:laki-laki,perempuan',
             'tanggal_lahir' => 'required|date',
             'tempat_lahir' => 'required|string|max:255',

@@ -6,12 +6,9 @@ Next:
 
 LAST TIME:
 =========
-- Telah iMPLEMENTASI SEMUANYA SISA jumlah kk dan jumlah rumah
+- Kita Telah menambahkan Role pada tabel penduduk, dan juga telah menulis kode untuk tambah dan update penduduk MODEL TERBARU
+TETAPI ketika mencoba MENAMBAH DATA PENDUDUK masih GAGAL, COBA DD dan lihat MASALAHNYA
 
 NEXT =  - Lanjut ke column  JUMLAH KK dan JUMLAH RUMAH
         - Minta ke GPT untuk mengefisienkan kode query pada laporan, terlalu panjang (dan berulang ulang)
 
-
-Note:
-- Modfikasi tabel pendduk, tambahakn role(kepala_keluarga, anggota_keluarga)
-- kemudian gunakan query untuk JUMLAH KK(Kepala Keluarga) berdasarkan kelamin

@@ -25,6 +25,7 @@ class StorePendudukRequest extends FormRequest
             'nik' => 'required|string|size:16|unique:penduduks,nik',
             'no_kk' => 'required|string|size:16',
             'nama' => 'required|string|max:255',
+            'role' => 'required|string|in:kepala_keluarga,anggota_keluarga',
             'jenis_kelamin' => 'required|in:laki-laki,perempuan',
             'tempat_lahir' => 'required|string|max:255',
             'tanggal_lahir' => 'required|date',

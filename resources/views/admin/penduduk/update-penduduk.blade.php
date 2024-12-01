@@ -31,13 +31,20 @@
                                     name="no_kk" maxlength="16" value="{{ old('no_kk', $penduduk->no_kk) }}" required>
                             </div>
 
-                            <!--Nama-->
+                            <!--Nama & Role-->
                             <div class="col-md-4">
-                                <label for="nama">Nama</label>
+                                <label for="nama">Nama & Posisi</label>
                             </div>
-                            <div class="col-md-8 form-group">
+                            <div class="col-md-5 form-group">
                                 <input type="text" id="nama" class="form-control" placeholder="Nama Lengkap"
                                     name="nama" value="{{ old('nama', $penduduk->nama) }}" required>
+                            </div>
+                            <div class="col-md-3 form-group">
+                                <select id="role" class="form-select" name="role" required>
+                                    <option value="" disabled>Posisi Dalam Keluarga</option>
+                                    <option value="kepala_keluarga" {{ $penduduk->role === 'kepala_keluarga' ? 'selected' : '' }}>Kepala Keluarga</option>
+                                    <option value="anggota_keluarga" {{ $penduduk->role === 'anggota_keluarga' ? 'selected' : '' }}>Anggota Keluarga</option>
+                                </select>
                             </div>
 
                             <!--Tempat Tanggal Lahir-->
@@ -74,8 +81,12 @@
                                 <label for="dusun">Dusun</label>
                             </div>
                             <div class="col-md-8 form-group">
-                                <input type="text" id="dusun" class="form-control" placeholder="Dusun" name="dusun"
-                                    value="{{ old('dusun', $penduduk->dusun) }}" required>
+                                <select id="dusun" class="form-select" name="dusun" required>
+                                    <option value="" disabled>Dusun</option>
+                                    <option value="Salu Patani" {{ $penduduk->dusun === 'Salu Patani' ? 'selected' : '' }}>Salu Patani</option>
+                                    <option value="Batu Tongkon" {{ $penduduk->dusun === 'Batu Tongkon' ? 'selected' : '' }}>Batu Tongkon</option>
+                                    <option value="Toro" {{ $penduduk->dusun === 'Toro' ? 'selected' : '' }}>Toro</option>
+                                </select>
                             </div>
 
                             <!--RT/RW-->

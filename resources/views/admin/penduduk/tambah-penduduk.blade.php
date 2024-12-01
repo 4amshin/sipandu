@@ -30,13 +30,20 @@
                                     name="no_kk" maxlength="16" required>
                             </div>
 
-                            <!--Nama-->
+                            <!--Nama & Role-->
                             <div class="col-md-4">
-                                <label for="first-name-horizontal">Nama</label>
+                                <label for="first-name-horizontal">Nama & Posisi</label>
                             </div>
-                            <div class="col-md-8 form-group">
+                            <div class="col-md-5 form-group">
                                 <input type="text" id="nama" class="form-control" placeholder="Nama Lengkap"
                                     name="nama" required>
+                            </div>
+                            <div class="col-md-3 form-group">
+                                <select id="role" class="form-select" name="role" required>
+                                    <option value="" disabled selected>Posisi Dalam Keluarga</option>
+                                    <option value="kepala_keluarga">Kepala Keluarga</option>
+                                    <option value="anggota_keluarga">Anggota Keluarga</option>
+                                </select>
                             </div>
 
                             <!--Tempat Tanggal Lahir-->
@@ -68,8 +75,12 @@
                                 <label for="first-name-horizontal">Dusun</label>
                             </div>
                             <div class="col-md-8 form-group">
-                                <input type="text" id="dusun" class="form-control" placeholder="Dusun" name="dusun"
-                                    required>
+                                <select id="dusun" class="form-select" name="dusun" required>
+                                    <option value="" disabled selected>Dusun</option>
+                                    <option value="Salu Patani">Salu Patani</option>
+                                    <option value="Batu Tongkong">Batu Tongkong</option>
+                                    <option value="Toro">Toro</option>
+                                </select>
                             </div>
 
                             <!--RT/RW-->
