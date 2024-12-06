@@ -1,14 +1,6 @@
-Revisi Laporan
-==============
-- Thead telah di implementasikan berdasarkan ref-laporan-sipandu
+Last:
+    - We fix the logic behind PendudukAwal query
+    - We Completed the Revisi for the Website
+
 Next:
- - Tampilkan Data dibody (melaui LaporanController:index)
-
-LAST TIME:
-=========
-- Kita Telah menambahkan Role pada tabel penduduk, dan juga telah menulis kode untuk tambah dan update penduduk MODEL TERBARU
-TETAPI ketika mencoba MENAMBAH DATA PENDUDUK masih GAGAL, COBA DD dan lihat MASALAHNYA
-
-NEXT =  - Lanjut ke column  JUMLAH KK dan JUMLAH RUMAH
-        - Minta ke GPT untuk mengefisienkan kode query pada laporan, terlalu panjang (dan berulang ulang)
-
+    - Fix the export part

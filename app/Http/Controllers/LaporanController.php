@@ -54,8 +54,12 @@ class LaporanController extends Controller
             ->groupBy('dusun', 'jenis_kelamin')
             ->get();
 
-        $pendudukAwal = Penduduk::select('dusun', 'jenis_kelamin', DB::raw('COUNT(*) as jumlah'))
-            ->whereDate('created_at', '<=', "$tahun-$bulan-14")
+        // $pendudukAwal = Penduduk::select('dusun', 'jenis_kelamin', DB::raw('COUNT(*) as jumlah'))
+        //     ->whereDate('created_at', '<=', "$tahun-$bulan-01")
+        //     ->groupBy('dusun', 'jenis_kelamin')
+        //     ->get();
+        $pendudukAwal = Penduduk::select('jenis_kelamin', 'dusun', DB::raw('COUNT(*) as jumlah'))
+            ->whereDate('created_at', '<=', Carbon::createFromDate($tahun, $bulan, 1)->subDay())
             ->groupBy('dusun', 'jenis_kelamin')
             ->get();
 
@@ -123,60 +127,17 @@ class LaporanController extends Controller
             ->groupBy('dusun', 'jenis_kelamin')
             ->get();
 
-            $pendudukAkhir = Penduduk::select('dusun', 'jenis_kelamin', DB::raw('COUNT(*) as jumlah'))
+        $pendudukAkhir = Penduduk::select('dusun', 'jenis_kelamin', DB::raw('COUNT(*) as jumlah'))
             ->whereDate('created_at', '<=', Carbon::createFromDate($tahun, $bulan)->endOfMonth())
             ->groupBy('dusun', 'jenis_kelamin')
             ->get();
 
         $dusunList = ['Salu Patani', 'Batu Tongkon', 'Toro'];
-        $laporan = compact('jumlahKK','pendudukAwal', 'lahir', 'meninggal', 'pendatang', 'pindahan', 'pendudukAkhir');
+        $laporan = compact('jumlahKK', 'pendudukAwal', 'lahir', 'meninggal', 'pendatang', 'pindahan', 'pendudukAkhir');
 
-        // dd($laporan);
 
         return view('admin.laporan.laporan-kependudukan', compact('laporan', 'dusunList'));
     }
-
-
-    //OLD METHOD
-    // public function index()
-    // {
-    //     $daftarPenduduk = Penduduk::all();
-    //     $daftarKelahiran = Kelahiran::all();
-    //     $daftarKematian = Kematian::all();
-    //     $daftarPendatang = Pendatang::all();
-    //     $daftarPindahan = Pindahan::all();
-
-    //     $tabs = [
-    //         [
-    //             'id' => 'penduduk',
-    //             'title' => 'Data Penduduk',
-    //             'view' => 'admin.laporan.laporan-penduduk',
-    //         ],
-    //         [
-    //             'id' => 'kelahiran',
-    //             'title' => 'Data Kelahiran',
-    //             'view' => 'admin.laporan.laporan-kelahiran',
-    //         ],
-    //         [
-    //             'id' => 'kematian',
-    //             'title' => 'Data Kematian',
-    //             'view' => 'admin.laporan.laporan-kematian',
-    //         ],
-    //         [
-    //             'id' => 'pendatang',
-    //             'title' => 'Data Pendatang',
-    //             'view' => 'admin.laporan.laporan-pendatang',
-    //         ],
-    //         [
-    //             'id' => 'pindahan',
-    //             'title' => 'Data Pindahan',
-    //             'view' => 'admin.laporan.laporan-pindahan',
-    //         ],
-    //     ];
-
-    //     return view('admin.laporan.laporan', compact('tabs', 'daftarPenduduk', 'daftarKelahiran', 'daftarKematian', 'daftarPendatang', 'daftarPindahan'));
-    // }
-
 
     public function exportDataPenduduk()
     {
