@@ -67,4 +67,5 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('export/laporan-kematian', [LaporanController::class, 'exportDataKematian'])->name('export.kematian');
     Route::get('export/laporan-pendatang', [LaporanController::class, 'exportDataPendatang'])->name('export.pendatang');
     Route::get('export/laporan-pindahan', [LaporanController::class, 'exportDataPindahan'])->name('export.pindahan');
+    Route::get('export/laporan', [LaporanController::class, 'exportLaporan'])->name('export.laporan');
 });

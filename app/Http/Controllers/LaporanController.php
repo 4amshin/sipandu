@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exports\KelahiranExport;
 use App\Exports\KematianExport;
+use App\Exports\LaporanExport;
 use App\Exports\PendatangExport;
 use App\Exports\PendudukExport;
 use App\Exports\PindahanExport;
@@ -54,10 +55,6 @@ class LaporanController extends Controller
             ->groupBy('dusun', 'jenis_kelamin')
             ->get();
 
-        // $pendudukAwal = Penduduk::select('dusun', 'jenis_kelamin', DB::raw('COUNT(*) as jumlah'))
-        //     ->whereDate('created_at', '<=', "$tahun-$bulan-01")
-        //     ->groupBy('dusun', 'jenis_kelamin')
-        //     ->get();
         $pendudukAwal = Penduduk::select('jenis_kelamin', 'dusun', DB::raw('COUNT(*) as jumlah'))
             ->whereDate('created_at', '<=', Carbon::createFromDate($tahun, $bulan, 1)->subDay())
             ->groupBy('dusun', 'jenis_kelamin')
@@ -137,6 +134,105 @@ class LaporanController extends Controller
 
 
         return view('admin.laporan.laporan-kependudukan', compact('laporan', 'dusunList'));
+    }
+
+    public function exportLaporan(Request $request)
+    {
+        $bulan = $request->get('bulan');
+        $tahun = $request->get('tahun');
+
+        $jumlahKK = Penduduk::select('dusun', 'jenis_kelamin', DB::raw('COUNT(*) as jumlah'))
+            ->where('role', 'kepala_keluarga')
+            ->groupBy('dusun', 'jenis_kelamin')
+            ->get();
+
+        $pendudukAwal = Penduduk::select('jenis_kelamin', 'dusun', DB::raw('COUNT(*) as jumlah'))
+            ->whereDate('created_at', '<=', Carbon::createFromDate($tahun, $bulan, 1)->subDay())
+            ->groupBy('dusun', 'jenis_kelamin')
+            ->get();
+
+        $lahir = Kelahiran::select('jenis_kelamin', 'dusun', DB::raw('COUNT(*) as jumlah'))
+            ->where(function ($query) use ($bulan, $tahun) {
+                $currentDate = Carbon::now();
+                $inputDate = Carbon::createFromDate($tahun, $bulan);
+
+                // Tentukan tanggal akhir untuk filter
+                $tanggalAkhir = $inputDate->isSameMonth($currentDate)
+                    ? $currentDate->endOfDay() // Tanggal hari ini jika bulan & tahun sama dengan sekarang
+                    : $inputDate->endOfMonth(); // Tanggal akhir bulan jika bulan & tahun adalah waktu lalu
+
+                // Tambahkan kondisi filter berdasarkan tanggal
+                $query->whereDate('tanggal_lahir', '<=', $tanggalAkhir);
+            })
+            ->groupBy('dusun', 'jenis_kelamin')
+            ->get();
+
+        $meninggal = Kematian::select('jenis_kelamin', 'dusun', DB::raw('COUNT(*) as jumlah'))
+            ->where(function ($query) use ($bulan, $tahun) {
+                $currentDate = Carbon::now();
+                $inputDate = Carbon::createFromDate($tahun, $bulan);
+
+                // Tentukan tanggal akhir untuk filter
+                $tanggalAkhir = $inputDate->isSameMonth($currentDate)
+                    ? $currentDate->endOfDay() // Tanggal hari ini jika bulan & tahun sama dengan sekarang
+                    : $inputDate->endOfMonth(); // Tanggal akhir bulan jika bulan & tahun adalah waktu lalu
+
+                // Tambahkan kondisi filter berdasarkan tanggal
+                $query->whereDate('tanggal_kematian', '<=', $tanggalAkhir);
+            })
+            ->groupBy('dusun', 'jenis_kelamin')
+            ->get();
+
+        $pendatang = Pendatang::select('jenis_kelamin', 'dusun', DB::raw('COUNT(*) as jumlah'))
+            ->where(function ($query) use ($bulan, $tahun) {
+                $currentDate = Carbon::now();
+                $inputDate = Carbon::createFromDate($tahun, $bulan);
+
+                // Tentukan tanggal akhir untuk filter
+                $tanggalAkhir = $inputDate->isSameMonth($currentDate)
+                    ? $currentDate->endOfDay() // Tanggal hari ini jika bulan & tahun sama dengan sekarang
+                    : $inputDate->endOfMonth(); // Tanggal akhir bulan jika bulan & tahun adalah waktu lalu
+
+                // Tambahkan kondisi filter berdasarkan tanggal
+                $query->whereDate('tanggal_datang', '<=', $tanggalAkhir);
+            })
+            ->groupBy('dusun', 'jenis_kelamin')
+            ->get();
+
+        $pindahan = Pindahan::select('jenis_kelamin', 'dusun', DB::raw('COUNT(*) as jumlah'))
+            ->where(function ($query) use ($bulan, $tahun) {
+                $currentDate = Carbon::now();
+                $inputDate = Carbon::createFromDate($tahun, $bulan);
+
+                // Tentukan tanggal akhir untuk filter
+                $tanggalAkhir = $inputDate->isSameMonth($currentDate)
+                    ? $currentDate->endOfDay() // Tanggal hari ini jika bulan & tahun sama dengan sekarang
+                    : $inputDate->endOfMonth(); // Tanggal akhir bulan jika bulan & tahun adalah waktu lalu
+
+                // Tambahkan kondisi filter berdasarkan tanggal
+                $query->whereDate('tanggal_pindah', '<=', $tanggalAkhir);
+            })
+            ->groupBy('dusun', 'jenis_kelamin')
+            ->get();
+
+        $pendudukAkhir = Penduduk::select('dusun', 'jenis_kelamin', DB::raw('COUNT(*) as jumlah'))
+            ->whereDate('created_at', '<=', Carbon::createFromDate($tahun, $bulan)->endOfMonth())
+            ->groupBy('dusun', 'jenis_kelamin')
+            ->get();
+
+        $laporan = [
+            'jumlahKK' => $jumlahKK,
+            'pendudukAwal' => $pendudukAwal,
+            'lahir' => $lahir,
+            'meninggal' => $meninggal,
+            'pendatang' => $pendatang,
+            'pindahan' => $pindahan,
+            'pendudukAkhir' => $pendudukAkhir,
+        ];
+
+        $dusunList = ['Salu Patani', 'Batu Tongkon', 'Toro'];
+
+        return Excel::download(new LaporanExport($laporan, $dusunList), 'laporan_penduduk.xlsx');
     }
 
     public function exportDataPenduduk()

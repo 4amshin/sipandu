@@ -1,6 +1,6 @@
 Last:
-    - We fix the logic behind PendudukAwal query
-    - We Completed the Revisi for the Website
+    - We Have Created The Export Button, The exportLaporan Funciton in Laporan Controller
+    We have created the LaporanExport also, but the table thead is not correct yet
 
 Next:
-    - Fix the export part
+    - Correct the table thead for LaporanExport

@@ -40,6 +40,7 @@
                         </div>
                         <div class="col-md-4 align-self-end">
                             <button type="submit" class="btn btn-primary">Filter</button>
+                            <button type="button" class="btn btn-success" id="exportButton">Export</button>
                         </div>
                     </div>
                 </form>
@@ -192,3 +193,14 @@
         </div>
     </section>
 @endsection
+
+@push('customJs')
+    <script>
+        document.getElementById('exportButton').addEventListener('click', function() {
+            const bulan = document.getElementById('bulan').value;
+            const tahun = document.getElementById('tahun').value;
+            let url = `{{ route('export.laporan') }}?bulan=${bulan}&tahun=${tahun}`;
+            window.location.href = url;
+        });
+    </script>
+@endpush
