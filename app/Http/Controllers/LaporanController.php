@@ -232,7 +232,7 @@ class LaporanController extends Controller
 
         $dusunList = ['Salu Patani', 'Batu Tongkon', 'Toro'];
 
-        return Excel::download(new LaporanExport($laporan, $dusunList), 'laporan_penduduk.xlsx');
+        return Excel::download(new LaporanExport($laporan, $dusunList, $bulan, $tahun), 'laporan_penduduk.xlsx');
     }
 
     public function exportDataPenduduk()

@@ -1,6 +1,6 @@
 Last:
-    - We Have Created The Export Button, The exportLaporan Funciton in Laporan Controller
-    We have created the LaporanExport also, but the table thead is not correct yet
+    - Kita Telah Membuat Tabel Export sesuai ref, tapi masih kurang border tabelnya
 
 Next:
-    - Correct the table thead for LaporanExport
+    - Tambahakn Border tabel pada LaporanExport
+    - dan bagaimana cara mengabungkan cell untuk text "JUMLAH" pada bagian bawah.
