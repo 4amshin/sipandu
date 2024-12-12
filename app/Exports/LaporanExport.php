@@ -172,6 +172,22 @@ class LaporanExport implements FromCollection, WithHeadings, WithStyles, WithCol
 
     public function styles(Worksheet $sheet)
     {
+        // Memberikan border pada range A3 sampai Y8
+        $sheet->getStyle('A3:Y8')->applyFromArray([
+            'borders' => [
+                'allBorders' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                    'color' => ['argb' => '000000'], // Warna hitam
+                ],
+            ],
+        ]);
+
+        // Menggabungkan cell A8 dengan B8
+        $sheet->mergeCells('A8:B8');
+        // Menambahkan teks ke dalam sel gabungan dan menyusun alignment
+        $sheet->setCellValue('A8', 'Jumlah');
+        $sheet->getStyle('A8')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
+
         // Menggabungkan sel A1 hingga Y2 untuk judul
         $sheet->mergeCells('A1:Y2');
 
