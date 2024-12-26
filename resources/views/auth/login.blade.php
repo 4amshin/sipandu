@@ -7,6 +7,7 @@
         <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
 
             <!--Logo-->
+            <!--GANTI LOGO DIBAWAH INI SESUAI LOGO DESA KALIAN-->
             <div class="login-brand mb-3 d-flex justify-content-center">
                 <img src="{{ asset('assets/compiled/logo.png') }}" alt="logo" height="100" class="shadow-light">
             </div>
@@ -15,7 +16,7 @@
             <div class="card card-primary">
                 <!--Title-->
                 <div class="card-header d-flex justify-content-center">
-                    <h4>KANTOR DESA PADANG KALUA</h4>
+                    <h4>KANTOR NAMA DESA</h4>
                 </div>
 
                 <!--Body-->

@@ -50,8 +50,11 @@
             <!--New Version-->
             <div class="d-flex justify-content-center">
                 <div class="logo">
-                    <a href="{{ route('home') }}"><img src="{{ asset('assets/compiled/svg/logo.svg') }}"
-                            alt="Logo"></a>
+                    <h1>Nama Desa</h1>
+
+                    <!--Pasang Logo pada kode dibawah ini-->
+                    {{-- <a href="{{ route('home') }}"><img src="{{ asset('assets/compiled/svg/logo.svg') }}"
+                            alt="Logo"></a> --}}
                 </div>
 
                 <div class="sidebar-toggler  x">
